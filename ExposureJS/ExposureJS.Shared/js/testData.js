@@ -1,35 +1,19 @@
-﻿var Event = WinJS.Binding.define({
-    dateTime: "",
-    code: "",
-    text: "",
-});
-
-var Leg  = WinJS.Binding.define({
-    
-    carrierLane: {
-        transitMode: "",
-        name: "",
-    },
-    destinationSite: {
-        name: "",
-        type: ""
-    },
-    originSite: {
-        name: "",
-        type: ""
-    },
-    scheduledShipDate: "",
-    events: []
-});
-
-var Shipment = WinJS.Binding.define({
+﻿var Shipment = WinJS.Binding.define({
     id: "",
     shipmentBid: "",
     followersCount: "",
     isFollowing: false,
     itemCount: "",
     elementumEstimatedDeliveryDate: "",
+    state: "",
+    originSite: {
+        id: "",
+        name: "",
+        city: "",
+        country: ""
+    },
     destinationSite: {
+        id: "",
         name: "",
         city: "",
         country: ""
@@ -151,7 +135,7 @@ var shipmentsCardFormat =
         "billOfLadingNumber": "EXDO612624863",
         "currentCarrier": {
             "transitMode": "SEA",
-            "name": "Damco"
+            "name": "Fedex"
         },
         "id": "_ntlYQIMPHJf_kLtZf46ZVqDUxxXzAq7PMxqLQZlUWUqOxoI284f_kLtZf46ZVqDUxxXzAq7PMxqLQZlUWUKZjz8A_5C7WX-OmX_DkJJQ1lDTEUwMDAzXzQ3HP8CODkYBFrMBP8DNDE3zP40Wiz-M8z_BDgwNjPM6_8HMzU1NDA1OQL_AjcyZf59",
         "state": "delivered",
@@ -227,7 +211,7 @@ var shipmentsCardFormat =
         "billOfLadingNumber": "EXDO612624863",
         "currentCarrier": {
             "transitMode": "SEA",
-            "name": "Damco"
+            "name": "Fedex"
         },
         "id": "_ntlYQIMPHJf_kLtZf46ZVqDUxxXzAq7PMxqLQZlUWUqOxoI284f_kLtZf46ZVqDUxxXzAq7PMxqLQZlUWUKZjz8A_5C7WX-OmX_DkJJQ1lDTEUwMDA1XzQ3HP8CODkYBFrMBP8DNDE3zP40Wiz-M8z_BDgwNjPM6_8HMzU1NDA1OQL_AjcyZf59",
         "state": "delivered",
@@ -265,7 +249,7 @@ var shipmentsCardFormat =
         "billOfLadingNumber": "EXDO612688854",
         "currentCarrier": {
             "transitMode": "ROAD",
-            "name": "Damco"
+            "name": "Fedex"
         },
         "id": "_ntlYQIMPHJf_kLtZf46ZVqDUxxXzAq7PMxqLQZlUWUqOxoI284f_kLtZf46ZVqDUxxXzAq7PMxqLQZlUWUKZjz8A_5C7WX-OmX_DE1SS1UxMjM0NTZfMgTvBP45GP4xzP40GP8COTTM_jQY_jgEzP44BP8CMjTM_wM1ODkE_wI4NwL_Ajg3BP8CNTFl_n0",
         "state": "booked",
@@ -837,10 +821,93 @@ var shipmentFilters = {
         "id": "_ntlYQIMPHJf_kLtZf46Zf5XAv5EBv5EUwkELQYKZVFl1EX-Qu1l_jpl_wYyMDEwMjBl_n0"
     }],
     "carrierOrganizations": [{
-        "name": "DAM",
+        "name": "Damco",
         "id": "_ntlYQIMPHJf_kLtZf46Zf8DREFNZVFlKjsaCNvOH_5C7WX-OmX_A0RBTWX-fQ"
+    },
+    {
+        "name": "Fedex",
+        "id": "_ntlYQIMPHJf_kLtZf46Zf8DREFNZVFlKjsaCNvOH_5C7WX-OmX_A0RBTWX-fJ"
     }]
 };
+
+var Filter = WinJS.Binding.define({
+    id: "",
+    name: "",
+    checked: false
+});
+
+var StatusFilter = WinJS.Binding.define({
+    booked: false,
+    inTransit: false,
+    delivered: false,
+    departingLate: false,
+    departingOnTime: false,
+    arrivingLate: false,
+    arrivingOnTime: false
+});
+
+var Filters = WinJS.Binding.define({
+    applyFilters: false,
+    status: "",
+    regions: [],
+    destinationSites: [],
+    originSites: [],
+    carrierOrganizations: [],
+});
+
+var appFilters = initShipmentFilters();
+function initShipmentFilters()
+{
+    var filters = new Filters();
+
+    filters.applyFilters = false;
+    filters.status = new StatusFilter();
+    for (var i = 0; i < shipmentFilters.regions.length; i++) {
+        var filter = new Filter(
+            {
+                id: shipmentFilters.regions[i].id,
+                name: shipmentFilters.regions[i].name,
+                checked: false
+            });
+
+        filters.regions.push(filter);
+    }
+
+    for (var i = 0; i < shipmentFilters.destinationSites.length; i++) {
+        var filter = new Filter(
+            {
+                id: shipmentFilters.destinationSites[i].id,
+                name: shipmentFilters.destinationSites[i].name,
+                checked: false
+            });
+
+        filters.destinationSites.push(filter);
+    }
+
+    for (var i = 0; i < shipmentFilters.originSites.length; i++) {
+        var filter = new Filter(
+            {
+                id: shipmentFilters.originSites[i].id,
+                name: shipmentFilters.originSites[i].name,
+                checked: false
+            });
+
+        filters.originSites.push(filter);
+    }
+
+    for (var i = 0; i < shipmentFilters.carrierOrganizations.length; i++) {
+        var filter = new Filter(
+            {
+                id: shipmentFilters.carrierOrganizations[i].id,
+                name: shipmentFilters.carrierOrganizations[i].name,
+                checked: false
+            });
+
+        filters.carrierOrganizations.push(filter);
+    }
+
+    return filters;
+}
 
 var everythingArray = createShipmentObjectArray();
 function createShipmentObjectArray() {
@@ -855,7 +922,15 @@ function createShipmentObjectArray() {
             isFollowing: shipmentsCardFormat[i].isFollowing,
             itemCount: shipmentsCardFormat[i].itemCount,
             elementumEstimatedDeliveryDate: shipmentsCardFormat[i].elementumEstimatedDeliveryDate,
+            state: shipmentsCardFormat[i].state,
+            "originSite": {
+                "id": shipmentsCardFormat[i].originSite.id,
+                "name": shipmentsCardFormat[i].originSite.name,
+                "city": shipmentsCardFormat[i].originSite.city,
+                "country": shipmentsCardFormat[i].originSite.country
+            },
             "destinationSite": {
+                "id": shipmentsCardFormat[i].destinationSite.id,
                 "name": shipmentsCardFormat[i].destinationSite.name,
                 "city": shipmentsCardFormat[i].destinationSite.city,
                 "country": shipmentsCardFormat[i].destinationSite.country

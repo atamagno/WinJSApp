@@ -14,13 +14,7 @@ WinJS.Namespace.define("ShipmentData", {
 (function () {
     "use strict";
 
-    var shipmentListBinding;
     var followingShipmentListBinding;
-
-    //function unfollowedShipments(item)
-    //{
-    //    return item.isFollowing;
-    //}
 
     var populateShipmentsListCallback = function (o) {
         if (o.status === 'completed') {
@@ -28,10 +22,10 @@ WinJS.Namespace.define("ShipmentData", {
 
             var followedShipmentsList = shipments.items.filter(unfollowedShipments);
 
-            shipmentListBinding = new WinJS.Binding.List(followedShipmentsList);
+            followingShipmentListBinding = new WinJS.Binding.List(followedShipmentsList);
             var followingListView = document.getElementById('followingListView').winControl;
 
-            followingListView.itemDataSource = shipmentListBinding.dataSource;
+            followingListView.itemDataSource = followingShipmentListBinding.dataSource;
         }
     }
 
@@ -41,15 +35,10 @@ WinJS.Namespace.define("ShipmentData", {
         ready: function (element, options) {
             // TODO: Inicializar la página aquí.
 
-            //var followingArray = everythingArray.filter(unfollowedShipments);
-
             // TODO: borrar estas tres lineas
-            //followingShipmentListBinding = new WinJS.Binding.List(followingArray);
-
             followingShipmentListBinding = ShipmentData.followingShipmentListBinding;
             var followingListView = document.getElementById('followingListView').winControl;
             followingListView.itemTemplate = this.itemTemplate.bind(this);
-            //followingListView.itemDataSource = followingShipmentListBinding.dataSource;
             followingListView.itemDataSource = followingShipmentListBinding.dataSource;
             
             //esaWin.core.esaAPI({
@@ -72,6 +61,9 @@ WinJS.Namespace.define("ShipmentData", {
                     itemList.isFollowing = !itemList.isFollowing;
                     itemList.followersCount = itemList.isFollowing ? ++itemList.followersCount : --itemList.followersCount;
                     followingShipmentListBinding.splice(index, 1);
+
+                    var followingListView = document.getElementById('followingListView').winControl;
+                    followingListView.forceLayout();
                 }, false);
 
                 return container;

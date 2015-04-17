@@ -36,7 +36,7 @@ WinJS.Namespace.define("ShipmentData", {
             document.querySelector(".filterButton").addEventListener("click", navigateToFilters, false);
 
             // TODO: borrar estas tres lineas
-            shipmentListBinding = new WinJS.Binding.List(everythingArray);
+            shipmentListBinding = new WinJS.Binding.List(everythingArray.filter(filterShipments));
             var everythingListView = document.getElementById('everythingListView').winControl;
             everythingListView.itemTemplate = this.itemTemplate.bind(this);
             everythingListView.itemDataSource = shipmentListBinding.dataSource;

@@ -38,11 +38,8 @@
         </div>
 
         <div class="filterRow" id="statusFilterSelection">
-            <div class="filterFirstColumn">Status</div>
-            <div class="filterSecondColumn">
-                <div>In transit</div>
-                <div>Departing: Late</div>
-                <div>Arriving: On-Time</div>
+            <div class="filterFirstColumn" style="width: 30%;">Status</div>
+            <div class="filterSecondColumn" style="width: 70%;">
             </div>
         </div>
         
@@ -83,7 +80,7 @@
                             </div>
                         </td>
                         <td class="applyFilterSelectionTableCell">
-                            <div>
+                            <div id="applyStatusDialogButton">
                                 Apply
                             </div>
                         </td>
@@ -96,21 +93,21 @@
                 <div class="selectionFilterRow">
                     <div class="filterFirstColumn">Booked</div>
                     <div class="filterSecondColumn">
-                        <input type="checkbox" class="cbSelectFilter">
+                        <input type="checkbox" class="cbSelectFilter" id="cbBooked">
                     </div>
                 </div>
 
                 <div class="selectionFilterRow">
                     <div class="filterFirstColumn">In-transit</div>
                     <div class="filterSecondColumn">
-                        <input type="checkbox" class="cbSelectFilter">
+                        <input type="checkbox" class="cbSelectFilter" id="cbInTransit">
                     </div>
                 </div>
 
                 <div class="selectionFilterRow">
                     <div class="filterFirstColumn">Delivered</div>
                     <div class="filterSecondColumn">
-                        <input type="checkbox" class="cbSelectFilter">
+                        <input type="checkbox" class="cbSelectFilter" id="cbDelivered">
                     </div>
                 </div>
 
@@ -119,14 +116,14 @@
                 <div class="selectionFilterRow marginTopFilterRow">
                     <div class="filterFirstColumn">Departing: Late</div>
                     <div class="filterSecondColumn">
-                        <input type="checkbox" class="cbSelectFilter">
+                        <input type="checkbox" class="cbSelectFilter" id="cbDepartingLate">
                     </div>
                 </div>
 
                 <div class="selectionFilterRow">
                     <div class="filterFirstColumn">Departing: On-Time</div>
                     <div class="filterSecondColumn">
-                        <input type="checkbox" class="cbSelectFilter">
+                        <input type="checkbox" class="cbSelectFilter" id="cbDepartingOnTime">
                     </div>
                 </div>
 
@@ -135,14 +132,14 @@
                 <div class="selectionFilterRow marginTopFilterRow">
                     <div class="filterFirstColumn">Arriving: Late</div>
                     <div class="filterSecondColumn">
-                        <input type="checkbox" class="cbSelectFilter">
+                        <input type="checkbox" class="cbSelectFilter" id="cbArrivingLate">
                     </div>
                 </div>
 
                 <div class="selectionFilterRow">
                     <div class="filterFirstColumn">Arriving: On-Time</div>
                     <div class="filterSecondColumn">
-                        <input type="checkbox" class="cbSelectFilter">
+                        <input type="checkbox" class="cbSelectFilter" id="cbArrivingOnTime">
                     </div>
                 </div>
             </div>
@@ -164,7 +161,7 @@
                             </div>
                         </td>
                         <td class="applyFilterSelectionTableCell">
-                            <div>
+                            <div id="applyCarrierDialogButton">
                                 Apply
                             </div>
                         </td>
@@ -192,7 +189,7 @@
                             </div>
                         </td>
                         <td class="applyFilterSelectionTableCell">
-                            <div>
+                            <div id="applyDepartingSiteDialogButton">
                                 Apply
                             </div>
                         </td>
@@ -220,7 +217,7 @@
                             </div>
                         </td>
                         <td class="applyFilterSelectionTableCell">
-                            <div>
+                            <div id="applyArrivingSiteDialogButton">
                                 Apply
                             </div>
                         </td>
@@ -248,7 +245,7 @@
                             </div>
                         </td>
                         <td class="applyFilterSelectionTableCell">
-                            <div>
+                            <div id="applyRegionDialogButton">
                                 Apply
                             </div>
                         </td>

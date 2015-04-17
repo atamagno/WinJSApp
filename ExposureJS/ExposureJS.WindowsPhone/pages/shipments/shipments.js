@@ -5,6 +5,55 @@ function unfollowedShipments(item) {
     return item.isFollowing;
 }
 
+function filterShipments(item) {
+
+    var filters = ShipmentData.appliedFilters;
+    if (filters.applyFilters)
+    {
+        var statusMatch = false;
+
+        var booked = false;
+        if (filters.status.booked)
+            booked = item.state == "booked" ? true : false;
+
+        var delivered = false;
+        if (filters.status.delivered)
+            delivered = item.state == "delivered" ? true : false;
+
+        if (booked || delivered) statusMatch = true;
+
+        var carrierMatch = false;
+        for (var i = 0; i < filters.carrierOrganizations.length; i++)
+        {
+            if (filters.carrierOrganizations[i].checked)
+            {
+                carrierMatch = item.currentCarrier.name == filters.carrierOrganizations[i].name ? true : false;
+                if (carrierMatch) break;
+            }
+        }
+
+        var originSiteMatch = false;
+        for (var i = 0; i < filters.originSites.length; i++) {
+            if (filters.originSites[i].checked) {
+                originSiteMatch = item.originSite.name == filters.originSites[i].name ? true : false;
+                if (originSiteMatch) break;
+            }
+        }
+
+        var destinationSiteMatch = false;
+        for (var i = 0; i < filters.destinationSites.length; i++) {
+            if (filters.destinationSites[i].checked) {
+                destinationSiteMatch = item.destinationSite.name == filters.destinationSites[i].name ? true : false;
+                if (destinationSiteMatch) break;
+            }
+        }
+        
+        return (statusMatch && carrierMatch && originSiteMatch && destinationSiteMatch);
+    }
+
+    return true;
+}
+
 WinJS.Namespace.define("ShipmentData", {
     showFormattedDate: WinJS.Binding.converter(function (jsonDate) {
         var date = TransportUtilities.parseJsonDate(jsonDate);
@@ -28,7 +77,9 @@ WinJS.Namespace.define("ShipmentData", {
         return itemCount + " items";
     }),
 
-    followingShipmentListBinding: new WinJS.Binding.List(everythingArray.filter(unfollowedShipments))
+    followingShipmentListBinding: new WinJS.Binding.List(everythingArray.filter(unfollowedShipments)),
+    appliedFilters: appFilters
+    
 });
 
 (function () {
