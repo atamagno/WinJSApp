@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <title>shipmentDetails</title>
+
+    <link href="../../css/hubPhone.css" rel="stylesheet" />
+    <link href="shipmentDetails.css" rel="stylesheet" />
+
+    <script src="shipmentDetails.js"></script>
+
+    <script src="shipment.js"></script>
+    <script src="contents.js"></script>
+    <script src="contacts.js"></script>
+    <script src="routeInfo.js"></script>
+    <script src="mapView.js"></script>
+</head>
+<body>
+    <table class="buttonsToolbarShipmentDetail">
+        <tr>
+            <td>
+                <div id="shipmentOption" class="toolbarDetailOptionSelected">
+                    <img class="optionImg" src="../../images/shipmentDetail.png" />
+                    <div>Shipment</div>
+                </div>
+            </td>
+            <td>
+                <div id="contentsOption" class="toolbarDetailOptionUnselected">
+                    <img class="optionImg" src="../../images/contents.png" />
+                    <div>Contents</div>
+                </div>
+            </td>
+            <td>
+                <div id="contactsOption" class="toolbarDetailOptionUnselected">
+                    <img class="optionImg" src="../../images/contacts.png" />
+                    <div>Contacts</div>
+                </div>
+            </td>
+            <td>
+                <div id="routeInfoOption" class="toolbarDetailOptionUnselected">
+                    <img class="optionImgWide" src="../../images/routeInfo.png" />
+                    <div>Route Info</div>
+                </div>
+            </td>
+            <td>
+                <div id="mapViewOption" class="toolbarDetailOptionUnselected">
+                    <img class="optionImgWide" src="../../images/mapView.png" />
+                    <div>Map View</div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div id="pivotShipmentDetails" class="hub" data-win-control="WinJS.UI.Pivot">
+
+        <div data-win-control="WinJS.UI.PivotItem">
+            <div data-win-control="ShipmentDetailOptions.ShipmentOption"></div>
+        </div>
+
+        <div data-win-control="WinJS.UI.PivotItem">
+            <div data-win-control="ShipmentDetailOptions.ContentsOption"></div>
+        </div>
+
+        <div data-win-control="WinJS.UI.PivotItem">
+            <div data-win-control="ShipmentDetailOptions.ContactsOption"></div>
+        </div>
+
+        <div data-win-control="WinJS.UI.PivotItem">
+            <div data-win-control="ShipmentDetailOptions.RouteInfoOption"></div>
+        </div>
+    </div>
+</body>
+</html>

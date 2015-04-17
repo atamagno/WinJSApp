@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <title>settings</title>
+
+    <link href="settings.css" rel="stylesheet" />
+    <script src="settings.js"></script>
+</head>
+<body>
+    <div id="settingsContainer">
+        <div class="flexDiv">
+            <div class="walkthroughLabel">Walk-through</div>
+            <div class="walkthroughToggleSwitch">
+                <div data-win-control="WinJS.UI.ToggleSwitch" data-win-options="{checked: true}"></div>
+            </div>
+        </div>
+        <div class="timeZonePreferenceLabel">
+            Time zone preference
+        </div>
+        <div class="timeZoneSelectorContainer">
+            <div class="selectedTimeZone">Pacific Standard Time</div>
+            <div class="changeTimeZoneButton">Change</div>
+        </div>
+        <div class="dateTimeFormatLabel">
+            Date and Time format
+        </div>
+        <div class="dateTimeFormatSelectorContainer">
+            <div class="flexDiv">
+                <div>
+                    <input type="checkbox" class="cbDateTimeFormat" />
+                </div>
+                <div class="dateTimeFormat">
+                    MM DD YYYY
+                </div>
+            </div>
+            <div class="flexDiv">
+                <div>
+                    <input type="checkbox" class="cbDateTimeFormat" />
+                </div>
+                <div class="dateTimeFormat">
+                    DD MM YYYY
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="timeZoneSelectionContainerBackground">
+        <div class="timeZoneSelectionDiv">
+            <div class="timeZoneSelectionHeader">
+                <table class="fullWidth">
+                    <tr>
+                        <td class="closeTimeZoneSelectionTableCell">
+                            <div id="closeTimeZoneDialogButton">
+                                Close
+                            </div>
+                        </td>
+                        <td class="refineFilterTableCell">
+                            <div>
+                                Time Zones
+                            </div>
+                        </td>
+                        <td class="applyTimeZoneSelectionTableCell">
+                            <div>
+                                Apply
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="timeZoneSelectionContainer">
+                <div class="selectionTimeZoneRow">
+                    <div class="timeZoneFirstColumn">Time zone choice 1</div>
+                    <div class="timeZoneSecondColumn">
+                        <input type="checkbox" class="cbSelectFilter">
+                    </div>
+                </div>
+
+                <div class="selectionTimeZoneRow">
+                    <div class="timeZoneFirstColumn">Time zone choice 2</div>
+                    <div class="timeZoneSecondColumn">
+                        <input type="checkbox" class="cbSelectFilter">
+                    </div>
+                </div>
+
+                <div class="selectionTimeZoneRow">
+                    <div class="timeZoneFirstColumn">Time zone choice 3</div>
+                    <div class="timeZoneSecondColumn">
+                        <input type="checkbox" class="cbSelectFilter">
+                    </div>
+                </div>
+
+                <div class="selectionTimeZoneRow">
+                    <div class="timeZoneFirstColumn">Time zone choice 4</div>
+                    <div class="timeZoneSecondColumn">
+                        <input type="checkbox" class="cbSelectFilter">
+                    </div>
+                </div>
+
+                <div class="selectionTimeZoneRow">
+                    <div class="timeZoneFirstColumn">Time zone choice 5</div>
+                    <div class="timeZoneSecondColumn">
+                        <input type="checkbox" class="cbSelectFilter">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

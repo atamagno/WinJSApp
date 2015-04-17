@@ -1,0 +1,171 @@
+﻿.settings section {
+	margin: auto 120px;
+}
+
+.phone .settings .page-section {
+	margin: auto 24px;
+}
+
+.phone .settings .page-header .titlearea {
+	-ms-grid-column: 1;
+	margin-top: 37px;
+	margin-left: 24px;
+	font-size: 28pt;
+	width: calc(100vw - 20px);
+}
+
+.phone .settings .back-button {
+	display: none;
+}
+
+.fragment {
+	-ms-grid-columns: 1fr;
+	-ms-grid-rows: 128px 1fr;
+	display: -ms-grid;
+	height: 100%;
+	width: 100%;
+}
+
+	.fragment section[role=main] {
+		-ms-grid-row: 2;
+		height: 100%;
+	}
+
+
+#settingsContainer {
+    padding: 40px 20px 0px 20px;
+    font-size: 18pt;
+    font-weight: normal;
+}
+
+#settingsContainer .win-toggleswitch {
+    padding: 0px;
+}
+
+    #settingsContainer .win-toggleswitch .win-label {
+        padding: 0px;
+    }
+
+    #settingsContainer .win-toggleswitch .win-switch {
+        padding: 0px 0px 0px 10px;
+    }
+
+.flexDiv {
+    display: flex;
+}
+
+.walkthroughLabel {
+    width: 50%;
+}
+
+.walkthroughToggleSwitch {
+    width: 50%;
+    text-align: right;
+}
+
+.timeZonePreferenceLabel {
+    margin-top: 20px;
+}
+
+.timeZoneSelectorContainer {
+    display: flex;
+    margin-top: 10px;
+    font-size: 14pt;
+}
+
+.selectedTimeZone {
+    width: 80%;
+    font-weight: 600;
+    padding: 5px 0px;
+}
+
+.changeTimeZoneButton {
+    width: 20%;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #15ACCA;
+    padding: 5px 10px;
+}
+
+.dateTimeFormatLabel {
+    margin-top: 20px;
+}
+
+.dateTimeFormatSelectorContainer {
+    margin-top: 10px;
+    font-size: 14pt;
+    font-weight: 600;
+}
+
+.cbDateTimeFormat {
+    margin: 0 !important;
+    width: 20px !important;
+    height: 20px !important;
+    position: relative !important;
+    top: -4px !important;
+}
+
+.dateTimeFormat {
+    padding-left: 20px;
+}
+
+#timeZoneSelectionContainerBackground {
+    display: none;
+    position: absolute;
+    top: 0px;
+    background-color: rgba(0, 0, 0, .5);
+    height: 100%; width: 100%;
+}
+
+.timeZoneSelectionDiv {
+    position: relative;
+    top: 100px;
+    background-color: #FFFFFF;
+}
+
+.timeZoneSelectionHeader {
+    color: #FFFFFF;
+    padding: 8px;
+    background-color: #15ACCA;
+    font-size: 16pt;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.closeTimeZoneSelectionTableCell {
+    text-align: left;
+    font-size: 14pt;
+    font-weight: normal;
+}
+
+.applyTimeZoneSelectionTableCell {
+    text-align: right;
+    font-size: 14pt;
+    font-weight: normal;
+}
+
+.timeZoneSelectionContainer {
+    font-size: 14pt;
+    background-color: #E5E5E5;
+    padding: 5px;
+}
+
+.selectionTimeZoneRow {
+    display: flex;
+    background-color: #FFFFFF;
+    border: 1px solid #CECECE;
+    padding: 5px 10px 5px 10px;
+    margin-top: 5px;
+}
+
+.timeZoneFirstColumn {
+    width: 50%;
+    font-weight: 800;
+}
+
+.timeZoneSecondColumn {
+    width: 50%;
+    text-align: right;
+}

@@ -1,0 +1,21 @@
+﻿// For details on localizing a Windows app, see: http://go.microsoft.com/fwlink/?LinkId=212836
+
+{
+	"Everything": "EVERYTHING",
+	"Following": "FOLLOWING",
+
+    "Section1": "SHIPMENT",
+	"Section1Title": "Título de la sección 1",
+
+    "Section2": "CONTENTS",
+    "Section2Title": "Título de la sección 2",
+    
+    "Section3": "CONTACTS",
+	"Section3Title": "Título de la sección 3",
+    
+    "Section4": "ROUTE INFO",
+	"Section4Title": "Título de la sección 4",
+
+	"Section5": "MAP VIEW",
+    "Section5Title": "Título de la sección 5"
+}

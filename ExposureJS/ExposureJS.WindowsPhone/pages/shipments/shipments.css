@@ -1,0 +1,323 @@
+﻿.shipments section {
+	margin: auto 120px;
+}
+
+.phone .shipments .page-section {
+	margin: auto 24px;
+}
+
+.phone .shipments .page-header .titlearea {
+	-ms-grid-column: 1;
+	margin-top: 37px;
+	margin-left: 24px;
+	font-size: 28pt;
+	width: calc(100vw - 20px);
+}
+
+.phone .shipments .back-button {
+	display: none;
+}
+
+.fragment {
+	-ms-grid-columns: 1fr;
+	-ms-grid-rows: 128px 1fr;
+	display: -ms-grid;
+	height: 100%;
+	width: 100%;
+}
+
+	.fragment section[role=main] {
+		-ms-grid-row: 2;
+		height: 100%;
+	}
+
+.win-pivot-headers {
+    background-color: #474A50;
+    display: none;
+}
+
+.win-pivot .win-pivot-viewport {
+    margin-top: 0px;
+}
+
+.win-pivot button.win-pivot-header, .win-pivot button.win-pivot-header:hover, .win-pivot button.win-pivot-header:hover:active {
+    font-size: 12pt;
+    font-weight: bold;
+    color: white;
+}
+
+.win-pivot-item {
+    top: 0px;
+}
+
+.win-pivot-item .win-pivot-item-content {
+    width: 100%;
+}
+
+.buttonsToolbar {
+    background-color: #474A50;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-size: 10pt;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.toolbarOptionSelected {
+    border-bottom: 6px solid #33B5E5;
+    width: 50%;
+    padding: 10px 0 10px 0;
+}
+
+.toolbarOptionUnselected {
+    width: 50%;
+    padding: 10px 0 10px 0;
+}
+
+.everythingButtonContent {
+    text-align: center;
+    border-right: 1px solid #595B5E;
+    padding: 5px 0 5px 0;
+}
+
+
+.followingButtonContent {
+    text-align: center;
+    padding: 5px 0 5px 0;
+}
+
+.listViewDiv {
+    height: 100%;
+}
+
+#pivotShipments .win-container {
+    padding: 0 15px 0 15px;
+}
+
+.shipment-card {
+    padding: 12px 17px;
+    background-color: #FFFFFF;
+}
+
+.shipment-card-header {
+    padding-bottom: 15px;
+}
+
+.schedule-status {
+    float: right;
+    color: red;
+}
+
+.shipment-bid {
+    color: #484949;
+    font-size: 18px;
+}
+
+.shipment-card-detail {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.shipment-card-detail-left {
+    display: inline-block;
+    width: 55%;
+    border-right: 1px solid #d0d0d0;
+}
+
+.shipment-card-detail-right {
+    display: inline-block;
+    width: 45%;
+    text-align: center;
+    padding: 0 8px;
+    box-sizing: content-box;
+    vertical-align: middle;
+}
+
+.shipment-items-count {
+    position: relative;
+    top: -15px;
+}
+
+.goint-to {
+    font: normal 10px/15px os;
+    color: #919090;
+    text-transform: uppercase;
+}
+
+.shipment-destination {
+    margin-bottom: 12px;
+}
+
+.currently-with {
+    font: normal 10px/15px os;
+    color: #919090;
+    text-transform: uppercase;
+}
+
+.carrier-name {
+    text-transform: uppercase;
+}
+
+.shipment-card-toolbar {
+    background-color: #eeeeee;
+    margin: 12px -17px -12px;
+    color: #484949;
+    padding: 0 6px; 
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    height: 35px;
+    line-height: 35px;
+}
+
+.following-button {
+    /*background-color: #15acca;*/
+    background-size: auto 16px;
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    margin-top: 6px;
+}
+
+.followers-count {
+    margin-left: 5px;
+}
+
+.listView {
+    height: 100%;
+}
+
+.filterButtonDiv {
+    position: fixed;
+    top: 2px;
+    right: 0px;
+    padding: 20px 10px;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.cancelFilterTableCell {
+    text-align: left;
+    font-size: 18pt;
+    font-weight: normal;
+}
+
+.refineFilterTableCell {
+    text-align: center;
+}
+
+.applyFilterTableCell {
+    text-align: right;
+    font-size: 18pt;
+    font-weight: normal;
+}
+
+.filtersContainer {
+    padding: 10px;
+    font-size: 16pt;
+    font-weight: normal;
+}
+
+.filtersResetRow {
+    display: flex;
+    padding: 20px 10px 10px 20px;
+}
+
+.filtersResetFirstColumn {
+    width: 30%;
+}
+
+.filtersResetSecondColumn {
+    width: 70%;
+    background-color: #15ACCA;
+    color: #FFFFFF;
+    font-size: 12pt;
+    text-align: center;
+    padding-top: 2px;
+}
+
+.filterRow {
+    display: flex;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border: 1px solid #CECECE;
+    margin-top: 10px;
+}
+
+.filterFirstColumn {
+    width: 50%;
+    font-weight: 800;
+}
+
+.filterSecondColumn {
+    width: 50%;
+    text-align: right;
+}
+
+#filtersSelectionContainerBackground {
+    display: none;
+    position: absolute;
+    top: 0px;
+    background-color: rgba(0, 0, 0, .5);
+    height: 100%; width: 100%;
+}
+
+.filtersSelectionDiv {
+    position: relative;
+    top: 100px;
+    background-color: #FFFFFF;
+    display: none;
+}
+
+.filterSelectionHeader {
+    color: #FFFFFF;
+    padding: 8px;
+    background-color: #15ACCA;
+    font-size: 16pt;
+}
+
+.closeFilterSelectionTableCell {
+    text-align: left;
+    font-size: 14pt;
+    font-weight: normal;
+}
+
+.applyFilterSelectionTableCell {
+    text-align: right;
+    font-size: 14pt;
+    font-weight: normal;
+}
+
+.filtersSelectionContainer {
+    font-size: 14pt;
+    background-color: #E5E5E5;
+    padding: 5px;
+}
+
+.selectionFilterRow {
+    display: flex;
+    background-color: #FFFFFF;
+    border: 1px solid #CECECE;
+    padding: 5px 10px 5px 10px;
+    margin-top: 5px;
+}
+
+.marginTopFilterRow {
+    margin-top: 10px;
+}
+
+.cbSelectFilter {
+    margin: 0px !important;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.filterDivision {
+    width: 100%;
+    height: 10px;
+    border-bottom: 1px solid #CECECE;
+}

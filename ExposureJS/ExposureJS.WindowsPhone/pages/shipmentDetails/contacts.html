@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <title>contacts</title>
+
+    <link href="contacts.css" rel="stylesheet" />
+    <script src="contacts.js"></script>
+</head>
+<body>
+    <div class="contactListViewTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+        <div class="shipment-contacts-detail">
+            <div class="shipment-contacts-detail-left">
+                <div class="contactImgContainer">
+                    <img src="../../images/contactPicture.png" class="contactImg" />
+                </div>
+            </div>
+            <div class="shipment-contacts-detail-right">
+                <div data-win-bind="textContent: organizationName" class="organizationName"></div>
+
+                <div class="contactName">
+                    <span style="display: none;" data-win-bind="textContent: firstName; style.display: firstName ShipmentContacts.displayIfNotNull"></span>
+                    <span data-win-bind="textContent: lastName"></span>
+                </div>
+
+                <table style="display: none;" data-win-bind="style.display: email ShipmentContacts.displayIfNotNull">
+                    <tr>
+                        <td>
+                            <img src="../../images/phone.png" class="contactIcon" />
+                        </td>
+                        <td>
+                            <div data-win-bind="textContent: email"></div>
+                        </td>
+                    </tr>
+                </table>
+
+                <table>
+                    <tr>
+                        <td>
+                            <img src="../../images/envelope.png" class="contactIcon" />
+                        </td>
+                        <td>
+                            <div data-win-bind="textContent: phone"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="contactsListView" class="listView"
+         data-win-control="WinJS.UI.ListView"
+         data-win-options="{
+                    itemTemplate: select('.contactListViewTemplate'),
+                    selectionMode: WinJS.UI.SelectionMode.none,
+                    tapBehavior: WinJS.UI.TapBehavior.none,
+                    layout: { type: WinJS.UI.ListLayout }
+            }">
+    </div>
+</body>
+</html>

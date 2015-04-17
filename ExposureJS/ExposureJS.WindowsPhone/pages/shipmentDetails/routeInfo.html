@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <title>routeInfo</title>
+
+    <link href="routeInfo.css" rel="stylesheet" />
+    <script src="routeInfo.js"></script>
+</head>
+<body>
+    <div class="routeInfoContainer">
+        <div class="routeInfoTopDiv">
+            <div class="routeInfoTopDivCell">
+                <div class="routeInfoImg">
+                    <img src="../../images/supplier.png" width="40" />
+                </div>
+            </div>
+            <div class="routeInfoTopDivCell">
+                <div class="routeInfoSite">
+                    <div class="routeInfoStartEnd">Start</div>
+                    <div data-win-bind="textContent: originSiteName"></div>
+                </div>
+            </div>
+            <div class="routeInfoTopDivCell">
+                <div class="routeInfoImg">
+                    <img src="../../images/arrow.png" width="25" />
+                </div>
+            </div>
+            <div class="routeInfoTopDivCell">
+                <div class="routeInfoImg">
+                    <img src="../../images/plant.jpg" width="40" />
+                </div>
+            </div>
+            <div class="routeInfoTopDivCell">
+                <div class="routeInfoSite">
+                    <div class="routeInfoStartEnd">End</div>
+                    <div data-win-bind="textContent: destinationSiteName"></div>
+                </div>
+            </div>
+        </div>
+        <div class="routeInfoBottomDiv">
+            <div class="routeInfoBottomDivFirstColumn">
+                <div class="routeInfoMainModeOfTransport">
+                    <div>Main mode of transport</div>
+                </div>
+            </div>
+            <div class="routeInfoBottomDivSecondColumn">
+                <div class="routeInfoImg">
+                    <img src="../../images/ship.png" class="routeInfoMainModeOfTransportImg" width="56" />
+                </div>
+            </div>
+            <div class="routeInfoBottomDivThirdColumn">
+                <div class="routeInfoMainModeOfTransport">
+                    <div data-win-bind="textContent: mainModeOfTransport"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

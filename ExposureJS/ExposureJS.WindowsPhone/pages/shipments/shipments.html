@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <title>shipments</title>
+
+    <link href="../../css/hubPhone.css" rel="stylesheet" />
+    <link href="shipments.css" rel="stylesheet" />
+
+    <script src="../../js/testdata.js"></script>
+    <script src="../../js/utils.js"></script>
+    <script src="shipments.js"></script>
+    <script src="everything.js"></script>
+    <script src="following.js"></script>
+</head>
+<body>
+    <div class="buttonsToolbar">
+        <div id="everythingOption" class="toolbarOptionSelected">
+            <div class="everythingButtonContent">Everything</div>
+        </div>
+        <div id="followingOption" class="toolbarOptionUnselected">
+            <div class="followingButtonContent">Following</div>
+        </div>
+    </div>
+
+    <div class="listItemTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+        <div class="shipment-card">
+            <div class="shipment-card-header">
+                <span class="schedule-status">
+                    <span data-win-bind="textContent: offScheduleBy ShipmentData.calculateDaysLate"></span>&nbsp;DAYS LATE
+                </span>
+                <div class="shipment-bid" data-win-bind="textContent: shipmentBid"></div>
+            </div>
+            <div class="shipment-card-detail">
+                <div class="shipment-card-detail-left">
+                    <span class="shipment-items-count" data-win-bind="textContent: itemCount ShipmentData.formatItemCount"></span>
+                    <div class="goint-to">Going to</div>
+                    <div data-win-bind="textContent: destinationSite.name"></div>
+                    <div class="shipment-destination">
+                        <span data-win-bind="textContent: destinationSite.city"></span>,&nbsp;
+                        <span data-win-bind="textContent: destinationSite.country"></span>
+                    </div>
+                    <div>
+                        Calculated:&nbsp;<span data-win-bind="textContent: elementumEstimatedDeliveryDate ShipmentData.showFormattedDate"></span>
+                    </div>
+                </div>
+
+                <div class="shipment-card-detail-right">
+                    <img src="../../images/truck.jpg" />
+                    <div class="currently-with">Booked with</div>
+                    <div class="carrier-name" data-win-bind="textContent: currentCarrier.name"></div>
+                </div>
+            </div>
+            <div class="shipment-card-toolbar">
+                <div class="following-button win-interactive" data-win-bind="style.backgroundColor: isFollowing ShipmentData.followingButtonColor"></div>
+                <div class="followers-count" data-win-bind="textContent: followersCount ShipmentData.followersCountText"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pivotShipments" class="hub" data-win-control="WinJS.UI.Pivot">
+        <div id="everythingPivotItem" data-win-control="WinJS.UI.PivotItem" data-win-res="{ winControl: {'header': 'Everything'} }">
+            <div data-win-control="ShipmentOptions.EverythingOption"></div>
+        </div>
+
+        <div id="followingPivotItem" data-win-control="WinJS.UI.PivotItem" data-win-res="{ winControl: {'header': 'Following'} }">
+            <div data-win-control="ShipmentOptions.FollowingOption"></div>
+        </div>
+    </div>
+</body>
+</html>

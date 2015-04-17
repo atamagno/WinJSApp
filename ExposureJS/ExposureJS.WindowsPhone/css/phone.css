@@ -1,0 +1,86 @@
+﻿body {
+    background-color: #E5E5E5;
+}
+
+#contenthost {
+	background-color: #000;
+}
+
+.fragment header[role=banner] {
+	/* Define a grid with columns for the back button and page title. */
+	-ms-grid-columns: 1fr;
+	-ms-grid-rows: 1fr;
+	display: -ms-grid;
+	height: 40px;
+}
+
+	.fragment header[role=banner] .win-navigation-backbutton {
+		visibility: hidden;
+	}
+
+	.fragment header[role=banner] .backbutton {
+		visibility: hidden;
+	}
+
+	.fragment header[role=banner] .titlearea {
+		-ms-grid-column: 1;
+		margin-top: 10px;
+		margin-left: 20px;
+		font-size: 20pt;
+		overflow: visible;
+	}
+
+		.fragment header[role=banner] .titlearea .pagetitle {
+			width: calc(100% - 20px);
+		}
+
+
+.mainContent header[role=banner] {
+	height: 60px;
+    width: 100%;
+    background-color: black;
+    padding-left: 10px;
+    color: white;
+}
+
+.appHeader {
+    color: #FFFFFF;
+    font-size: 24pt;
+    background-color: #000000;
+    padding: 8px;
+}
+
+.appLogo {
+    position: relative;
+    top: 2px;
+}
+
+#leftPanel
+{
+    position: fixed;
+    left: 0px;
+    top: 60px;
+    width: 300px;
+    height: 100%;
+    color: white;
+    background-color: #606060;
+    opacity: 0;
+    z-index: -1;
+}
+
+.panelOption {
+    padding-left: 40px !important;
+    background-color: #474a50;
+}
+
+#leftPanel div
+{
+    font-size: 14pt;
+    color: #ffffff;
+    margin-bottom: 1px;
+    padding: 10px;
+}
+
+.emptyOption {
+    height: 30px;
+}

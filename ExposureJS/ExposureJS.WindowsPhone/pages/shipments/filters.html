@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <title>filters</title>
+
+    <script src="../../js/testdata.js"></script>
+    <script src="filters.js"></script>
+</head>
+<body>
+    <div class="appHeader">
+        <table class="fullWidth">
+            <tr>
+                <td class="cancelFilterTableCell">
+                    <div id="cancelFiltersButton">
+                        Cancel
+                    </div>
+                </td>
+                <td class="refineFilterTableCell">
+                    <div>
+                        Refine
+                    </div>
+                </td>
+                <td class="applyFilterTableCell">
+                    <div id="applyFiltersButton">
+                        Apply
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="filtersContainer">
+        <div class="filtersResetRow">
+            <div class="filtersResetFirstColumn">Filter</div>
+            <div class="filtersResetSecondColumn" id="resetAllFiltersButton">Reset All</div>
+        </div>
+
+        <div class="filterRow" id="statusFilterSelection">
+            <div class="filterFirstColumn">Status</div>
+            <div class="filterSecondColumn">
+                <div>In transit</div>
+                <div>Departing: Late</div>
+                <div>Arriving: On-Time</div>
+            </div>
+        </div>
+        
+        <div class="filterRow" id="carrierFilterSelection">
+            <div class="filterFirstColumn">Carrier</div>
+            <div class="filterSecondColumn">All</div>
+        </div>
+
+        <div class="filterRow" id="departingSiteFilterSelection">
+            <div class="filterFirstColumn">Departing Site</div>
+            <div class="filterSecondColumn">All</div>
+        </div>
+
+        <div class="filterRow" id="arrivingSiteFilterSelection">
+            <div class="filterFirstColumn">Arriving Site</div>
+            <div class="filterSecondColumn">All</div>
+        </div>
+
+        <div class="filterRow" id="regionFilterSelection">
+            <div class="filterFirstColumn">Region</div>
+            <div class="filterSecondColumn">All</div>
+        </div>
+    </div>
+
+    <div id="filtersSelectionContainerBackground">
+        <div class="statusFiltersDiv filtersSelectionDiv">
+            <div class="filterSelectionHeader">
+                <table class="fullWidth">
+                    <tr>
+                        <td class="closeFilterSelectionTableCell">
+                            <div id="closeStatusDialogButton">
+                                Close
+                            </div>
+                        </td>
+                        <td class="refineFilterTableCell">
+                            <div>
+                                Status
+                            </div>
+                        </td>
+                        <td class="applyFilterSelectionTableCell">
+                            <div>
+                                Apply
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="filtersSelectionContainer">
+
+                <div class="selectionFilterRow">
+                    <div class="filterFirstColumn">Booked</div>
+                    <div class="filterSecondColumn">
+                        <input type="checkbox" class="cbSelectFilter">
+                    </div>
+                </div>
+
+                <div class="selectionFilterRow">
+                    <div class="filterFirstColumn">In-transit</div>
+                    <div class="filterSecondColumn">
+                        <input type="checkbox" class="cbSelectFilter">
+                    </div>
+                </div>
+
+                <div class="selectionFilterRow">
+                    <div class="filterFirstColumn">Delivered</div>
+                    <div class="filterSecondColumn">
+                        <input type="checkbox" class="cbSelectFilter">
+                    </div>
+                </div>
+
+                <div class="filterDivision"></div>
+
+                <div class="selectionFilterRow marginTopFilterRow">
+                    <div class="filterFirstColumn">Departing: Late</div>
+                    <div class="filterSecondColumn">
+                        <input type="checkbox" class="cbSelectFilter">
+                    </div>
+                </div>
+
+                <div class="selectionFilterRow">
+                    <div class="filterFirstColumn">Departing: On-Time</div>
+                    <div class="filterSecondColumn">
+                        <input type="checkbox" class="cbSelectFilter">
+                    </div>
+                </div>
+
+                <div class="filterDivision"></div>
+
+                <div class="selectionFilterRow marginTopFilterRow">
+                    <div class="filterFirstColumn">Arriving: Late</div>
+                    <div class="filterSecondColumn">
+                        <input type="checkbox" class="cbSelectFilter">
+                    </div>
+                </div>
+
+                <div class="selectionFilterRow">
+                    <div class="filterFirstColumn">Arriving: On-Time</div>
+                    <div class="filterSecondColumn">
+                        <input type="checkbox" class="cbSelectFilter">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="carrierFiltersDiv filtersSelectionDiv">
+            <div class="filterSelectionHeader">
+                <table class="fullWidth">
+                    <tr>
+                        <td class="closeFilterSelectionTableCell">
+                            <div id="closeCarrierDialogButton">
+                                Close
+                            </div>
+                        </td>
+                        <td class="refineFilterTableCell">
+                            <div>
+                                Carrier
+                            </div>
+                        </td>
+                        <td class="applyFilterSelectionTableCell">
+                            <div>
+                                Apply
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="filtersSelectionContainer">
+            </div>
+
+        </div>
+
+        <div class="departingSiteFiltersDiv filtersSelectionDiv">
+            <div class="filterSelectionHeader">
+                <table class="fullWidth">
+                    <tr>
+                        <td class="closeFilterSelectionTableCell">
+                            <div id="closeDepartingSiteDialogButton">
+                                Close
+                            </div>
+                        </td>
+                        <td class="refineFilterTableCell">
+                            <div>
+                                Departing
+                            </div>
+                        </td>
+                        <td class="applyFilterSelectionTableCell">
+                            <div>
+                                Apply
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="filtersSelectionContainer">
+            </div>
+
+        </div>
+
+        <div class="arrivingSiteFiltersDiv filtersSelectionDiv">
+            <div class="filterSelectionHeader">
+                <table class="fullWidth">
+                    <tr>
+                        <td class="closeFilterSelectionTableCell">
+                            <div id="closeArrivingSiteDialogButton">
+                                Close
+                            </div>
+                        </td>
+                        <td class="refineFilterTableCell">
+                            <div>
+                                Arriving
+                            </div>
+                        </td>
+                        <td class="applyFilterSelectionTableCell">
+                            <div>
+                                Apply
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="filtersSelectionContainer">
+            </div>
+
+        </div>
+
+        <div class="regionFiltersDiv filtersSelectionDiv">
+            <div class="filterSelectionHeader">
+                <table class="fullWidth">
+                    <tr>
+                        <td class="closeFilterSelectionTableCell">
+                            <div id="closeRegionDialogButton">
+                                Close
+                            </div>
+                        </td>
+                        <td class="refineFilterTableCell">
+                            <div>
+                                Region
+                            </div>
+                        </td>
+                        <td class="applyFilterSelectionTableCell">
+                            <div>
+                                Apply
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="filtersSelectionContainer">
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

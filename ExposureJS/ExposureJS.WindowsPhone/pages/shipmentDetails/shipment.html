@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <title>shipment</title>
+
+    <link href="shipment.css" rel="stylesheet" />
+    <script src="../../js/utils.js"></script>
+    <script src="shipment.js"></script>
+</head>
+<body>
+    
+    <div class="shipmentDetailContainer">
+        <div class="shipment-card">
+            <div class="shipment-card-header">
+                <span class="schedule-status">
+                    <span data-win-bind="textContent: offScheduleBy ShipmentData.calculateDaysLate"></span>&nbsp;DAYS LATE
+                </span>
+                <div class="shipment-bid" data-win-bind="textContent: shipmentBid"></div>
+            </div>
+            <div class="shipment-card-detail">
+                <div class="shipment-card-detail-left">
+                    <span class="shipment-items-count" data-win-bind="textContent: itemCount ShipmentData.formatItemCount"></span>
+                    <div class="goint-to">Going to</div>
+                    <div data-win-bind="textContent: destinationSite.name"></div>
+                    <div class="shipment-destination">
+                        <span data-win-bind="textContent: destinationSite.city"></span>,&nbsp;
+                        <span data-win-bind="textContent: destinationSite.country"></span>
+                    </div>
+                    <div>
+                        Calculated:&nbsp;<span data-win-bind="textContent: elementumEstimatedDeliveryDate ShipmentData.showFormattedDate"></span>
+                    </div>
+                </div>
+
+                <div class="shipment-card-detail-right">
+                    <img src="../../images/truck.jpg" />
+                    <div class="currently-with">Booked with</div>
+                    <div class="carrier-name" data-win-bind="textContent: currentCarrier.name"></div>
+                </div>
+            </div>
+            <div class="shipment-card-toolbar">
+                <div class="following-button win-interactive" data-win-bind="style.backgroundColor: isFollowing ShipmentData.followingButtonColor"></div>
+                <div class="followers-count" data-win-bind="textContent: followersCount ShipmentData.followersCountText"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="eventsDiv">
+        Events
+    </div>
+
+    <div class="eventsListViewTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+        <div data-win-bind="style.display: this ShipmentDetails.showIfFirstLeg" style="display: none;">
+            <div class="eventContainer">
+                <div class="eventRouteIndicator"
+                     data-win-bind="style.display: this ShipmentDetails.displayIfNotLastLeg;
+                                    style.height: this ShipmentDetails.changeHeightIfActualLeg" style="display: none;">
+                </div>
+                <div class="eventRouteColumn">
+                    <div class="eventSiteTypeImg">
+                        <img src="../../images/supplier-blue.svg" width="60" height="60" />
+                    </div>
+                </div>
+                <div class="eventDetailsColumn eventDetailsColumnSelected">
+                    <table class="eventDetailsTable">
+                        <tr>
+                            <td class="eventSiteName">
+                                <div data-win-bind="textContent: originSite.name"></div>
+                            </td>
+                            <td class="eventScheduledShipDate">
+                                <div data-win-bind="textContent: scheduledShipDate ShipmentDetails.showScheduleShipDate"></div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="eventAddressDiv">
+                    </div>
+                </div>
+            </div>
+            <div data-win-bind="style.display: events ShipmentDetails.displayIfEventsExist" style="display: none;">
+                <div class="eventRouteColumn"></div>
+                <div class="eventDetailsColumnBottom">
+                    <table class="eventDetailsColumnBottomTable">
+                        <tr>
+                            <td class="eventBottomTableFirstColumn">
+                                AW
+                            </td>
+                            <td class="eventBottomTableSecondColumn">
+                                <div>
+                                    Shipment available for pick-up
+                                </div>
+                            </td>
+                            <td class="eventBottomTableThirdColumn">
+                                <div>
+                                    Sep 14. 2014 09:00PM
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="eventContainer">
+            <div class="eventRouteIndicator"></div>
+            <div class="eventRouteColumn">
+                <div class="eventSiteTypeImg">
+                    <img src="../../images/road-ltgrey.svg" width="60" height="60" />
+                </div>
+            </div>
+            <div class="eventDetailsColumn eventDetailsColumnUnselected">
+                <table class="eventDetailsTable carrierDiv">
+                    <tr>
+                        <td class="eventSiteName">
+                            <div>Damco</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="eventContainer">
+            <div class="eventRouteIndicator"
+                 data-win-bind="style.display: this ShipmentDetails.displayIfNotLastLeg;
+                                style.height: this ShipmentDetails.changeHeightIfActualLeg">
+
+            </div>
+            <div class="eventRouteColumn">
+                <div class="eventSiteTypeImg">
+                    <img data-win-bind="src: destinationSite.type ShipmentDetails.showSiteTypeImg" width="60" height="60" />
+                </div>
+            </div>
+            <div class="eventDetailsColumn eventDetailsColumnUnselected">
+                <table class="eventDetailsTable">
+                    <tr>
+                        <td class="eventSiteName">
+                            <div data-win-bind="textContent: destinationSite.name"></div>
+                        </td>
+                        <td class="eventScheduledShipDate"></td>
+                    </tr>
+                </table>
+                <div class="eventAddressDiv">
+                    <!--<div style="">No 166, Yuewang Rd, 142, TW</div>-->
+                </div>
+            </div>
+        </div>
+
+        <br />
+    </div>
+
+    <div class="shipmentEventsContainer" style="padding: 10px;">
+        <div id="eventsListView" class="listView"
+             data-win-control="WinJS.UI.ListView"
+             data-win-options="{
+            itemTemplate: select('.eventsListViewTemplate'),
+            selectionMode: WinJS.UI.SelectionMode.none,
+            tapBehavior: WinJS.UI.TapBehavior.none,
+            layout: { type: WinJS.UI.ListLayout }
+        }">
+        </div>
+    </div>
+
+</body>
+</html>

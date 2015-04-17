@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ExposureJS.WindowsPhone</title>
+    
+  <!-- WinJS references -->
+  <script src="//Microsoft.Phone.WinJS.2.1/js/base.js"></script>
+  <script src="//Microsoft.Phone.WinJS.2.1/js/ui.js"></script>
+
+  <!-- ExposureJS references -->
+  <script src="/js/esaWin/core.js"></script>  
+  
+  <!-- TODO: Need to be removed. Example files -->
+  <!-- At runtime, ui-themed.css resolves to ui-themed.light.css or ui-themed.dark.css
+  based on the user’s theme setting. This is part of the MRT resource loading functionality. -->
+  <link href="/css/ui-themed.theme-light.css" rel="stylesheet" />
+  <link href="/css/phone.css" rel="stylesheet" />
+  <script src="/js/navigator.js"></script>
+  <script src="/js/default.js"></script>
+
+</head>
+<body class="phone mainContent">
+
+    <div class="appHeader">
+        <img id="logoButton" alt="hidden" class="appLogo" src="/images/transport-logo.jpg" />
+        <span id="pageTitle">Log in</span>
+    </div>
+
+    <div id="contenthost"
+         data-win-control="Application.PageControlNavigator"
+         data-win-options="{home: '/pages/shipments/shipments.html'}">
+    </div>
+
+    <div id="leftPanel">
+        <div>
+            User Name
+        </div>
+        <div>
+            TRANSPORT
+        </div>
+        <div id="shipmentsOption" class="panelOption">
+            Shipments
+        </div>
+        <div>
+            HELP & SETTINGS
+        </div>
+        <div id="settingsOption" class="panelOption">
+            Settings
+        </div>
+        <div id="walkthroughOption" class="panelOption">
+            Walkthrough
+        </div>
+        <div id="aboutOption" class="panelOption">
+            About
+        </div>
+        <div class="emptyOption">
+        </div>
+        <div id="logoutOption" class="panelOption">
+            Logout
+        </div>
+    </div>
+</body>
+</html>

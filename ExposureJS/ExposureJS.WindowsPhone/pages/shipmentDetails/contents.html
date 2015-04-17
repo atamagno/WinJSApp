@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <title>contents</title>
+
+    <link href="contents.css" rel="stylesheet" />
+    <script src="contents.js"></script>
+</head>
+<body>
+
+    <div class="contentsListViewTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+        <div class="shipment-contents-detail">
+            <div class="shipment-contents-detail-left">
+                <div>Line Item</div>
+                <div>Product#</div>
+                <div>Description</div>
+                <div>PO#</div>
+            </div>
+            <div class="shipment-contents-detail-right">
+                <span data-win-bind="textContent: lineNumber"></span>&nbsp;(<span data-win-bind="textContent: itemQuantity.count"></span>
+                <span data-win-bind="textContent: itemQuantity.unitOfMeasure"></span>)<br />
+                <div data-win-bind="textContent: productNumber"></div>
+                <div data-win-bind="textContent: description"></div>
+                <div data-win-bind="textContent: purchaseOrderNumber"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contentsListView" class="listView"
+         data-win-control="WinJS.UI.ListView"
+         data-win-options="{
+                    itemTemplate: select('.contentsListViewTemplate'),
+                    selectionMode: WinJS.UI.SelectionMode.none,
+                    tapBehavior: WinJS.UI.TapBehavior.none,
+                    layout: { type: WinJS.UI.ListLayout }
+            }">
+    </div>
+</body>
+</html>

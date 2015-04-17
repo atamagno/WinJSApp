@@ -1,0 +1,377 @@
+﻿.shipmentDetails section {
+	margin: auto 120px;
+}
+
+.phone .shipmentDetails .page-section {
+	margin: auto 24px;
+}
+
+.phone .shipmentDetails .page-header .titlearea {
+	-ms-grid-column: 1;
+	margin-top: 37px;
+	margin-left: 24px;
+	font-size: 28pt;
+	width: calc(100vw - 20px);
+}
+
+.phone .shipmentDetails .back-button {
+	display: none;
+}
+
+.fragment {
+	-ms-grid-columns: 1fr;
+	-ms-grid-rows: 128px 1fr;
+	display: -ms-grid;
+	height: 100%;
+	width: 100%;
+}
+
+	.fragment section[role=main] {
+		-ms-grid-row: 2;
+		height: 100%;
+	}
+
+.buttonsToolbarShipmentDetail {
+    background-color: #EFEFEF;
+    color: #464646;
+    text-transform: uppercase;
+    font-size: 10pt;
+    border-collapse: collapse;
+    width: 100%;
+    border-bottom: 1px solid #B1B1B1;
+}
+
+.buttonsToolbarShipmentDetail div {
+    padding-top: 5px;
+    text-align: center;
+}
+
+.buttonsToolbarShipmentDetail td {
+    padding-top: 10px;
+    text-align: center;
+}
+
+.optionImg {
+    width: 30px;
+}
+
+.optionImgWide {
+    width: 50px;
+}
+
+.toolbarDetailOptionSelected {
+    color: #149EBC;
+}
+
+.toolbarDetailOptionUnselected {
+    color: #464646;
+}
+
+.eventsDiv {
+    background-color: #149EBC;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    padding: 2px 0 2px 0;
+    font-size: 20px;
+    text-align: center;
+}
+
+.shipmentDetailContainer {
+    padding: 15px;
+}
+
+.shipment-contents-detail {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    border-bottom: 1px solid #CECECE;
+}
+
+.shipment-contents-detail-left {
+    display: inline-block;
+    width: 25%;
+    background-color: #E7E7E7;
+    padding: 10px;
+    text-align: right;
+}
+
+.shipment-contents-detail-right {
+    display: inline-block;
+    width: 75%;
+    background-color: #F7F7F7;
+    padding: 10px;
+}
+
+#contentsListView .win-container {
+    margin: 0;
+}
+
+.shipment-contacts-detail {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    border-top: 1px solid #CECECE;
+    background-color: #E7E7E7;
+    padding: 20px 0 20px;
+}
+
+.shipment-contacts-detail-left {
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto 0 auto;
+    padding: 25px 0px 0px 25px;
+}
+
+.shipment-contacts-detail-right {
+    display: inline-block;
+    width: 75%;
+}
+
+.contactImgContainer {
+    background-color: #FFFFFF;
+    height: 60px;
+    width: 60px;
+    border-radius: 50px;
+}
+
+.contactImg {
+    position: relative;
+    top: 7px;
+    max-height: 45px;
+    max-width : 45px;
+}
+
+.organizationName {
+    color: #3292B1;
+    font-size: 20px;
+    padding-bottom: 5px;
+}
+
+.contactName {
+    font-size: 18px;
+    padding-bottom: 5px;
+}
+
+.contactIcon {
+    max-height: 20px;
+    max-width: 20px;
+    position: relative;
+    top: 1px;
+}
+
+.contactInfo {
+    padding-bottom: 5px;
+}
+
+#contactsListView .win-container {
+    margin: 0;
+}
+
+#contactsListView .win-itembox {
+    background-color: #E7E7E7;
+}
+
+.routeInfoTopDiv {
+    display: -webkit-flex;
+    display: flex;
+    background-color: #FFFFFF;
+    width: 100%;
+}
+
+.routeInfoTopDivCell {
+    display: table;
+    height: 150px;
+    width: 20%;
+}
+
+.routeInfoImg {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.routeInfoSite {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding: 0 10px 0 10px;
+    font-size: 12pt;
+}
+
+.routeInfoStartEnd {
+    font-weight: bold;
+}
+
+.routeInfoBottomDiv {
+    display: -webkit-flex;
+    display: flex;
+    background-color: #FFFFFF;
+    width: 100%;
+    font-weight: 800;
+    border-top: 1px solid #D8D8D8;
+    border-bottom: 1px solid #D8D8D8;
+}
+
+.routeInfoBottomDivFirstColumn {
+    display: table;
+    height: 66px;
+    width: 50%;
+}
+
+.routeInfoBottomDivSecondColumn {
+    display: table;
+    height: 66px;
+    width: 20%;
+    background-color: #F5F5F5;
+}
+
+.routeInfoBottomDivThirdColumn {
+    display: table;
+    height: 66px;
+    width: 30%;
+    background-color: #F5F5F5;
+}
+
+.routeInfoMainModeOfTransport {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding: 0 10px 0 10px;
+    font-size: 12pt;
+}
+
+.routeInfoMainModeOfTransportImg {
+    position: relative;
+    top: 1px;
+}
+
+#eventsListView .win-container {
+    margin: 0;
+    position: static;
+    height: auto;
+}
+
+#eventsListView .win-itembox {
+    position: static;
+}
+
+#eventsListView .win-item {
+    overflow: visible;
+}
+
+.shipmentEventsContainer .win-listview .win-itembox, .win-itemcontainer .win-itembox {
+    background-color: #E5E5E5;
+}
+
+.eventContainer {
+    display: flex;
+    position: relative;
+}
+
+.eventRouteIndicator {
+    background: #919292;
+    z-index: -1;
+    top: 60px;
+    left: 36px;
+    position: absolute;
+    width: 6px;
+    border: none;
+    height: 100px;
+}
+
+.eventRouteColumn {
+    width: 20%;
+}
+
+.eventSiteTypeImg {
+    position: relative;
+    top: 10px;
+    text-align: center;
+}
+
+.eventDetailsColumn {
+    width: 80%;
+}
+
+.eventDetailsColumnSelected {
+    border: 2px solid #149EBC;
+}
+
+.eventDetailsColumnUnselected {
+    border: 1px solid #E0E0E0;
+}
+
+.eventDetailsTable {
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 5px;
+}
+
+.carrierDiv {
+    height: 100px;
+}
+
+.eventSiteName {
+    width: 30%;
+    font-size: 12pt;
+    vertical-align: top;
+}
+
+.eventScheduledShipDate {
+    width: 70%;
+    text-transform: uppercase;
+    vertical-align: top;
+    font-size: 8pt;
+    text-align: right;
+}
+
+.eventAddressDiv {
+    background-color: #FFFFFF;
+    padding: 15px 5px 5px 5px;
+    color: #686464;
+    font-size: 8pt;
+    height: 16px;
+}
+
+.eventDetailsColumnBottom {
+    width: 80%;
+    display: table;
+    padding: 3px 10px;
+}
+
+.eventDetailsColumnBottomTable {
+    width: 96%;
+    background-color: #FFFFFF;
+    border: 2px solid #149EBC;
+    border-collapse: collapse;
+}
+
+.eventBottomTableFirstColumn {
+    width: 10%;
+    vertical-align: top; 
+    color: #FFFFFF;
+    background-color: #149EBC;
+    padding: 2px;
+    text-align: center;
+}
+
+.eventBottomTableSecondColumn {
+    width: 39%;
+    text-transform: uppercase;
+    font-size: 8pt;
+    padding: 4px;
+}
+
+.eventBottomTableThirdColumn {
+    width: 50%;
+    text-align: right;
+    font-size: 8pt;
+    vertical-align: top;
+    padding: 4px;
+}
+
+.tableDisplay {
+    display: table;
+}
