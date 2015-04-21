@@ -106,10 +106,19 @@
         }
     }
 
+    function checkIfSamePageAndNavigate(target)
+    {
+        var page = document.getElementById("contenthost").winControl.pageControl;
+        var fullTarget = "ms-appx://" + Windows.ApplicationModel.Package.current.id.name + target;
+        if (fullTarget !== page.uri) {
+            nav.navigate(target, false);
+        }
+    }
+
     function navigateToShipments(eventInfo) {
         eventInfo.preventDefault();
         togglePanelUI();
-        nav.navigate("/pages/shipments/shipments.html", false);
+        checkIfSamePageAndNavigate("/pages/shipments/shipments.html");
     }
 
     function navigateToSettings(eventInfo) {

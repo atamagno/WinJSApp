@@ -59,7 +59,6 @@
     color: #FFFFFF;
     text-transform: uppercase;
     font-size: 10pt;
-    display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
 }
@@ -115,7 +114,6 @@
 }
 
 .shipment-card-detail {
-    display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
 }
@@ -161,11 +159,11 @@
 }
 
 .shipment-card-toolbar {
+    position: relative;
     background-color: #eeeeee;
     margin: 12px -17px -12px;
     color: #484949;
-    padding: 0 6px; 
-    display: -ms-flexbox;
+    padding: 0 6px;
     display: -webkit-flex;
     display: flex;
     height: 35px;
@@ -183,6 +181,12 @@
 
 .followers-count {
     margin-left: 5px;
+}
+
+.share-details-button {
+    position: absolute;
+    right: 0px;
+    padding: 5px 5px 0px 0px;
 }
 
 .listView {

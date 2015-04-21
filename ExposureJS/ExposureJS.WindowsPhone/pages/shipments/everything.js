@@ -57,6 +57,9 @@ WinJS.Namespace.define("ShipmentData", {
                 var container = document.createElement("div");
                 itemTemplate.winControl.render(item.data, container);
 
+                //var shareButton = container.querySelector(".share-details-button");
+                //shareButton.addEventListener("click", function (args) { sendEmail(container.innerHTML); }, false);
+
                 var followingButton = container.querySelector(".following-button");
                 followingButton.addEventListener("click", function (args) {
                     var itemList = shipmentListBinding.getAt(index);
@@ -101,6 +104,31 @@ WinJS.Namespace.define("ShipmentData", {
     function navigateToFilters(eventInfo) {
         eventInfo.preventDefault();
         WinJS.Navigation.navigate("/pages/shipments/filters.html", false);
+    }
+
+    function sendEmail(htmlContent)
+    {
+        var emailToSend = {
+            ToAddress: "agusto.tamagno@gmail.com",
+            Subject: "Test Elementum Email",
+            HtmlContent: htmlContent // agregar estilos in-line
+        };
+
+        WinJS.xhr({
+            type: "POST",
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            url: "http://localhost:17765/EmailSender.svc/SendEmail",
+            data: JSON.stringify({ emailInfo: emailToSend }),
+        }).done(
+            function completed(request) {
+                var returnValue = JSON.parse(request.responseText);;
+            },
+            function error(request) {
+                var returnValue = JSON.parse(request.responseText);
+            }
+      );
     }
 
     WinJS.Namespace.define("ShipmentOptions", {

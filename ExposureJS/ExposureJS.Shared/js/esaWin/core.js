@@ -12,7 +12,7 @@
     config: {
       environment: 'apps.elementum.com',
       user: 'biker@elementum.com',
-      password: 'amsterdam'
+      password: '$Ale$1300'
     },
 
     // ASync Call elementum API using XHR
