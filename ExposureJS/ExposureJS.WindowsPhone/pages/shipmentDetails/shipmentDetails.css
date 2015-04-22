@@ -204,13 +204,22 @@
     font-weight: bold;
 }
 
-.routeInfoBottomDiv {
+.routeInfoMiddleDiv {
     display: -webkit-flex;
     display: flex;
     background-color: #FFFFFF;
     width: 100%;
     font-weight: 800;
     border-top: 1px solid #D8D8D8;
+    border-bottom: 1px solid #D8D8D8;
+}
+
+.routeInfoBottomDiv {
+    display: -webkit-flex;
+    display: flex;
+    background-color: #FFFFFF;
+    width: 100%;
+    font-weight: 800;
     border-bottom: 1px solid #D8D8D8;
 }
 
@@ -231,6 +240,13 @@
     display: table;
     height: 66px;
     width: 30%;
+    background-color: #F5F5F5;
+}
+
+.routeInfoBottomDivLastColumn {
+    display: table;
+    height: 66px;
+    width: 50%;
     background-color: #F5F5F5;
 }
 

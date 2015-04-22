@@ -34,7 +34,8 @@
         complete: false,
         entered: false,
     },
-    legs: []
+    legs: [],
+    vesselName: ""
 });
 
 var shipmentsCardFormat =
@@ -929,6 +930,7 @@ function createShipmentObjectArray(shipmentsArray) {
             elementumEstimatedDeliveryDate: shipmentsArray[i].elementumEstimatedDeliveryDate,
             state: shipmentsArray[i].state,
             promisedDeliveryDate: shipmentsArray[i].promisedDeliveryDate,
+            vesselName: shipmentsArray[i].vesselName,
             "originSite": {
                 "id": shipmentsArray[i].originSite.id,
                 "name": shipmentsArray[i].originSite.name,

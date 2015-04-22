@@ -4,7 +4,8 @@
 var RouteInfo = WinJS.Binding.define({
     mainModeOfTransport: "",
     originSiteName: "",
-    destinationSiteName: ""
+    destinationSiteName: "",
+    vesselName: ""
 });
 
 (function () {
@@ -29,7 +30,8 @@ var RouteInfo = WinJS.Binding.define({
                 {
                     mainModeOfTransport: mainModeOfTransport,
                     originSiteName: originSiteName,
-                    destinationSiteName: destinationSiteName
+                    destinationSiteName: destinationSiteName,
+                    vesselName: ShipmentData.selectedShipment.vesselName
                 }
             );
 

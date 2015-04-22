@@ -20,15 +20,24 @@ WinJS.Namespace.define("ShipmentData", {
         if (o.status === 'completed') {
             var shipments = JSON.parse(o.request.response);
 
-            var everythingArray = createShipmentObjectArray(shipments.items);
-            shipmentListBinding = new WinJS.Binding.List(everythingArray.filter(filterShipments));
+            var everythingArray = createShipmentObjectArray(shipments.items.filter(filterShipments));
+            if (everythingArray.length == 0) {
+                document.querySelector("#noResultsDiv").style.display = "block";
+            }
+
+            shipmentListBinding = new WinJS.Binding.List(everythingArray);
             var everythingListView = document.getElementById('everythingListView').winControl;
             everythingListView.itemDataSource = shipmentListBinding.dataSource;
 
             ShipmentData.followingShipmentListBinding = new WinJS.Binding.List(everythingArray.filter(unfollowedShipments));
-
-            document.querySelector(".loadingBackground").style.display = "none";
         }
+        else {
+            if (o.status === 'error') {
+                document.querySelector("#cannotReachServerDiv").style.display = "block";
+            }
+        }
+
+        document.querySelector(".loadingBackground").style.display = "none";
     }
 
     var getShipmentPosterCallback = function (o) {
