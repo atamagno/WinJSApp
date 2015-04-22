@@ -14,7 +14,7 @@ WinJS.Namespace.define("ShipmentData", {
 (function () {
     "use strict";
 
-    var followingShipmentListBinding;
+    //var followingShipmentListBinding;
 
     var populateShipmentsListCallback = function (o) {
         if (o.status === 'completed') {
@@ -22,10 +22,10 @@ WinJS.Namespace.define("ShipmentData", {
 
             var followedShipmentsList = shipments.items.filter(unfollowedShipments);
 
-            followingShipmentListBinding = new WinJS.Binding.List(followedShipmentsList);
+            ShipmentData.followingShipmentListBinding = new WinJS.Binding.List(followedShipmentsList);
             var followingListView = document.getElementById('followingListView').winControl;
 
-            followingListView.itemDataSource = followingShipmentListBinding.dataSource;
+            followingListView.itemDataSource = ShipmentData.followingShipmentListBinding.dataSource;
         }
     }
 
@@ -34,18 +34,18 @@ WinJS.Namespace.define("ShipmentData", {
         // rellena los elementos de la página con los datos de la aplicación.
         ready: function (element, options) {
             // TODO: Inicializar la página aquí.
-
-            // TODO: borrar estas tres lineas
-            followingShipmentListBinding = ShipmentData.followingShipmentListBinding;
-            var followingListView = document.getElementById('followingListView').winControl;
-            followingListView.itemTemplate = this.itemTemplate.bind(this);
-            followingListView.itemDataSource = followingShipmentListBinding.dataSource;
             
             //esaWin.core.esaAPI({
             //    url: '/rest/v1/shipments/card',
             //    type: 'GET',
             //    callback: populateShipmentsListCallback
             //});
+
+            // TODO: borrar estas tres lineas
+            //followingShipmentListBinding = ShipmentData.followingShipmentListBinding;
+            var followingListView = document.getElementById('followingListView').winControl;
+            followingListView.itemTemplate = this.itemTemplate.bind(this);
+            followingListView.itemDataSource = ShipmentData.followingShipmentListBinding.dataSource;
         },
 
         itemTemplate: function (itemPromise) {
@@ -57,10 +57,10 @@ WinJS.Namespace.define("ShipmentData", {
 
                 var followingButton = container.querySelector(".following-button");
                 followingButton.addEventListener("click", function (args) {
-                    var itemList = followingShipmentListBinding.getAt(index);
+                    var itemList = ShipmentData.followingShipmentListBinding.getAt(index);
                     itemList.isFollowing = !itemList.isFollowing;
                     itemList.followersCount = itemList.isFollowing ? ++itemList.followersCount : --itemList.followersCount;
-                    followingShipmentListBinding.splice(index, 1);
+                    ShipmentData.followingShipmentListBinding.splice(index, 1);
 
                     var followingListView = document.getElementById('followingListView').winControl;
                     followingListView.forceLayout();
@@ -71,7 +71,7 @@ WinJS.Namespace.define("ShipmentData", {
         },
 
         navigateToShipmentDetail: WinJS.Utilities.markSupportedForProcessing(function (args) {
-            var item = followingShipmentListBinding.getAt(args.detail.itemIndex);
+            var item = ShipmentData.followingShipmentListBinding.getAt(args.detail.itemIndex);
             WinJS.Navigation.navigate("/pages/shipmentDetails/shipmentDetails.html", { shipmentID: item.id });
         }),
 

@@ -1,5 +1,12 @@
 ﻿// For an introduction to the Hub/Pivot template, see the following documentation:
 // http://go.microsoft.com/fwlink/?LinkID=392285
+
+// TODO: BORRAR, esto se debe completar en el login
+WinJS.Namespace.define("UserData", {
+    firstName: "Biker",
+    lastName: "Demo"
+});
+
 (function () {
     "use strict";
 
@@ -37,6 +44,8 @@
             });
 
             args.setPromise(p);
+
+            userNameDiv.innerHTML = UserData.firstName + " " + UserData.lastName;
 
             logoButton.addEventListener("click", togglePanelUI, false);
             leftPanel = document.querySelector("#leftPanel");

@@ -8,6 +8,8 @@ function unfollowedShipments(item) {
 function filterShipments(item) {
 
     var filters = ShipmentData.appliedFilters;
+    if (!filters) return true;
+
     if (filters.applyFilters)
     {
         var statusMatch = false;
@@ -54,32 +56,36 @@ function filterShipments(item) {
     return true;
 }
 
-WinJS.Namespace.define("ShipmentData", {
-    showFormattedDate: WinJS.Binding.converter(function (jsonDate) {
-        var date = TransportUtilities.parseJsonDate(jsonDate);
-        return date.month + " " + date.day + ", " + date.year;
-    }),
-
-    calculateDaysLate: WinJS.Binding.converter(function (offScheduleBy) {
+function calculateDaysLate(offScheduleBy) {
         
-        var daysLate = 0;
-        switch (offScheduleBy.unit)
-        {
-            case "SECONDS":
-                daysLate = -(offScheduleBy.duration / 86400);
-                break;
-        }
+    var daysLate = 0;
+    switch (offScheduleBy.unit)
+    {
+        case "SECONDS":
+            daysLate = -(offScheduleBy.duration / 86400);
+            break;
+    }
 
-        return daysLate.toFixed(1);
-    }),
+    return daysLate.toFixed(1);
+}
+
+function showFormattedDate(jsonDate)
+{
+    var date = TransportUtilities.parseJsonDate(jsonDate);
+    return date.month + " " + date.day + ", " + date.year;
+}
+
+WinJS.Namespace.define("ShipmentData", {
+    showFormattedDateConverter: WinJS.Binding.converter(showFormattedDate),
+
+    calculateDaysLateConverter: WinJS.Binding.converter(calculateDaysLate),
 
     formatItemCount: WinJS.Binding.converter(function (itemCount) {
         return itemCount + " items";
     }),
 
     followingShipmentListBinding: new WinJS.Binding.List(everythingArray.filter(unfollowedShipments)),
-    appliedFilters: appFilters
-    
+    appliedFilters: null
 });
 
 (function () {

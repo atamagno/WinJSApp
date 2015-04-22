@@ -16,7 +16,8 @@ WinJS.Namespace.define("ShipmentContacts", {
         ready: function (element, options) {
             // TODO: Inicializar la página aquí.
 
-            var shipmentContacts = shipmentPoster.contacts;
+            //var shipmentContacts = shipmentPoster.contacts;
+            var shipmentContacts = ShipmentData.selectedShipment.contacts;
 
             var contactsListBinding = new WinJS.Binding.List(shipmentContacts);
             var contactsListView = document.getElementById('contactsListView').winControl;

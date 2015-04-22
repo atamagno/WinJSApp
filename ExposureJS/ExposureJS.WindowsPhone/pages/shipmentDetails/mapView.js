@@ -5,7 +5,10 @@ var map, path;
 
 function buildPath() {
     path = new Array();
-    for (var i = 0; i < shipmentPoster.legs.length; i++) {
+
+    //var shipmentLegs = shipmentPoster.legs;
+    var shipmentLegs = ShipmentData.selectedShipment.legs;
+    for (var i = 0; i < shipmentLegs.length; i++) {
 
         var leg = shipmentPoster.legs[i];
         var tempPath = leg.carrierLane.path;

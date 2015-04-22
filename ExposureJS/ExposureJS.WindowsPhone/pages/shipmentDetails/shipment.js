@@ -69,7 +69,8 @@ var eventsListView;
 
             WinJS.Binding.processAll(element.querySelector(".shipmentDetailContainer"), shipment);
 
-            var shipmentLegs = shipmentPoster.legs;
+            var shipmentLegs = ShipmentData.selectedShipment.legs;
+            //var shipmentLegs = shipmentPoster.legs;
             var legsListBinding = new WinJS.Binding.List(shipmentLegs);
 
             eventsListView = document.getElementById('eventsListView').winControl;

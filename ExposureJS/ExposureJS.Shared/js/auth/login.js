@@ -7,10 +7,20 @@
   //esaWin.logger.init('pages-auth-login.js', ['info', 'error']);
   //esaWin.logger.message('starting up', 'pages-auth-login.js', 'info');
 
+  //WinJS.Namespace.define("UserData", {
+  //    firstName: "",
+  //    lastName: ""
+  //});
+
   var loginCallback = function (o) {
-    if (o.status === 'completed') {
-        WinJS.log && WinJS.log('callback-req' + o.request.responseText, 'pages-auth-login.js', 'info');
-        WinJS.Navigation.navigate("/pages/shipments/shipments.html", false);
+      if (o.status === 'completed') {
+          var currentUserInfo = JSON.parse(o.request.response);
+
+          //UserData.firstName = currentUserInfo.contact.firstName;
+          //UserData.lastName = currentUserInfo.contact.lastName;
+
+          WinJS.log && WinJS.log('callback-req' + o.request.responseText, 'pages-auth-login.js', 'info');
+          WinJS.Navigation.navigate("/pages/shipments/shipments.html", false);
     }
   }
 

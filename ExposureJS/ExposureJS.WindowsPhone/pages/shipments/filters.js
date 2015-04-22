@@ -6,15 +6,41 @@ var appliedFilters, resetFilters;
 (function () {
     "use strict";
 
+    var populateFiltersListCallback = function (o) {
+        if (o.status === 'completed') {
+            appliedFilters = initShipmentFilters(JSON.parse(o.request.response));
+
+            ShipmentData.appliedFilters = appliedFilters;
+            initSelectedFilters();
+
+            document.querySelector(".loadingBackground").style.display = "none";
+        }
+    }
+
     WinJS.UI.Pages.define("/pages/shipments/filters.html", {
         // Se llama a esta función cuando un usuario navega a esta página. Esta
         // rellena los elementos de la página con los datos de la aplicación.
         ready: function (element, options) {
             // TODO: Inicializar la página aquí.
-            resetFilters = false;
-            appliedFilters = ShipmentData.appliedFilters;
 
-            initSelectedFilters();
+            element.querySelector(".loadingBackground").style.display = "block";
+
+            if (!ShipmentData.appliedFilters) {
+                esaWin.core.esaAPI({
+                    url: '/rest/v1/shipments/filters',
+                    type: 'GET',
+                    callback: populateFiltersListCallback
+                });
+            }
+            else {
+                appliedFilters = ShipmentData.appliedFilters;
+                initSelectedFilters();
+                element.querySelector(".loadingBackground").style.display = "none";
+            }
+
+            resetFilters = false;
+            //appliedFilters = ShipmentData.appliedFilters;
+            //initSelectedFilters();
 
             document.querySelector(".appHeader").style.display = "none";
 
@@ -85,19 +111,19 @@ var appliedFilters, resetFilters;
         appliedFilters.status.arrivingLate = false;
         appliedFilters.status.arrivingOnTime = false;
 
-        for (var i = 0; i < appFilters.destinationSites.length; i++) {
+        for (var i = 0; i < appliedFilters.destinationSites.length; i++) {
             appliedFilters.destinationSites[i].checked = false;
         }
 
-        for (var i = 0; i < appFilters.originSites.length; i++) {
+        for (var i = 0; i < appliedFilters.originSites.length; i++) {
             appliedFilters.originSites[i].checked = false;
         }
 
-        for (var i = 0; i < appFilters.carrierOrganizations.length; i++) {
+        for (var i = 0; i < appliedFilters.carrierOrganizations.length; i++) {
             appliedFilters.carrierOrganizations[i].checked = false;
         }
 
-        for (var i = 0; i < appFilters.regions.length; i++) {
+        for (var i = 0; i < appliedFilters.regions.length; i++) {
             appliedFilters.regions[i].checked = false;
         }
 
@@ -211,16 +237,16 @@ var appliedFilters, resetFilters;
 
                 break;
             case "applyCarrierDialogButton":
-                buildSelectedFiltersDivAfterApply(".carrierFiltersDiv", "#carrierFilterSelection", appFilters.carrierOrganizations);
+                buildSelectedFiltersDivAfterApply(".carrierFiltersDiv", "#carrierFilterSelection", appliedFilters.carrierOrganizations);
                 break;
             case "applyDepartingSiteDialogButton":
-                buildSelectedFiltersDivAfterApply(".departingSiteFiltersDiv", "#departingSiteFilterSelection", appFilters.originSites);
+                buildSelectedFiltersDivAfterApply(".departingSiteFiltersDiv", "#departingSiteFilterSelection", appliedFilters.originSites);
                 break;
             case "applyArrivingSiteDialogButton":
-                buildSelectedFiltersDivAfterApply(".arrivingSiteFiltersDiv", "#arrivingSiteFilterSelection", appFilters.destinationSites);
+                buildSelectedFiltersDivAfterApply(".arrivingSiteFiltersDiv", "#arrivingSiteFilterSelection", appliedFilters.destinationSites);
                 break;
             case "applyRegionDialogButton":
-                buildSelectedFiltersDivAfterApply(".regionFiltersDiv", "#regionFilterSelection", appFilters.regions);
+                buildSelectedFiltersDivAfterApply(".regionFiltersDiv", "#regionFilterSelection", appliedFilters.regions);
                 break;
         }
 

@@ -109,6 +109,19 @@
     padding-left: 20px;
 }
 
+.autoLoginSelectorContainer {
+    margin-top: 20px;
+}
+
+.autoLoginLabel {
+    width: 50%;
+}
+
+.autoLoginToggleSwitch {
+    width: 50%;
+    text-align: right;
+}
+
 #timeZoneSelectionContainerBackground {
     display: none;
     position: absolute;

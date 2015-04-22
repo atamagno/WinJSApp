@@ -68,6 +68,10 @@
     z-index: -1;
 }
 
+#userNameDiv {
+    text-transform: uppercase;
+}
+
 .panelOption {
     padding-left: 40px !important;
     background-color: #474a50;

@@ -23,9 +23,9 @@
             document.getElementById("routeInfoOption").addEventListener("click", selectPivotItem, false);
             document.getElementById("mapViewOption").addEventListener("click", selectPivotItem, false);
 
-            WinJS.Namespace.define("ShipmentData", {
-                shipmentID: options.shipmentID
-            });
+            //WinJS.Namespace.define("ShipmentData", {
+            //    shipmentID: options.shipmentID
+            //});
         },
 
         unload: function () {

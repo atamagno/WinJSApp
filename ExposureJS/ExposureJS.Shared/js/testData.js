@@ -6,17 +6,20 @@
     itemCount: "",
     elementumEstimatedDeliveryDate: "",
     state: "",
+    promisedDeliveryDate: "",
     originSite: {
         id: "",
         name: "",
         city: "",
-        country: ""
+        country: "",
+        type: ""
     },
     destinationSite: {
         id: "",
         name: "",
         city: "",
-        country: ""
+        country: "",
+        type: ""
     },
     currentCarrier: {
         name: "",
@@ -804,6 +807,7 @@ var shipmentPoster =
     "vesselName": "CMA CGM SAMSON "
 };
 
+/*
 var shipmentFilters = {
     "regions": [{
         "name": "Asia",
@@ -829,6 +833,7 @@ var shipmentFilters = {
         "id": "_ntlYQIMPHJf_kLtZf46Zf8DREFNZVFlKjsaCNvOH_5C7WX-OmX_A0RBTWX-fJ"
     }]
 };
+*/
 
 var Filter = WinJS.Binding.define({
     id: "",
@@ -855,51 +860,51 @@ var Filters = WinJS.Binding.define({
     carrierOrganizations: [],
 });
 
-var appFilters = initShipmentFilters();
-function initShipmentFilters()
+//var appFilters = initShipmentFilters(shipmentFilters);
+function initShipmentFilters(customFilters)
 {
     var filters = new Filters();
 
     filters.applyFilters = false;
     filters.status = new StatusFilter();
-    for (var i = 0; i < shipmentFilters.regions.length; i++) {
+    for (var i = 0; i < customFilters.regions.length; i++) {
         var filter = new Filter(
             {
-                id: shipmentFilters.regions[i].id,
-                name: shipmentFilters.regions[i].name,
+                id: customFilters.regions[i].id,
+                name: customFilters.regions[i].name,
                 checked: false
             });
 
         filters.regions.push(filter);
     }
 
-    for (var i = 0; i < shipmentFilters.destinationSites.length; i++) {
+    for (var i = 0; i < customFilters.destinationSites.length; i++) {
         var filter = new Filter(
             {
-                id: shipmentFilters.destinationSites[i].id,
-                name: shipmentFilters.destinationSites[i].name,
+                id: customFilters.destinationSites[i].id,
+                name: customFilters.destinationSites[i].name,
                 checked: false
             });
 
         filters.destinationSites.push(filter);
     }
 
-    for (var i = 0; i < shipmentFilters.originSites.length; i++) {
+    for (var i = 0; i < customFilters.originSites.length; i++) {
         var filter = new Filter(
             {
-                id: shipmentFilters.originSites[i].id,
-                name: shipmentFilters.originSites[i].name,
+                id: customFilters.originSites[i].id,
+                name: customFilters.originSites[i].name,
                 checked: false
             });
 
         filters.originSites.push(filter);
     }
 
-    for (var i = 0; i < shipmentFilters.carrierOrganizations.length; i++) {
+    for (var i = 0; i < customFilters.carrierOrganizations.length; i++) {
         var filter = new Filter(
             {
-                id: shipmentFilters.carrierOrganizations[i].id,
-                name: shipmentFilters.carrierOrganizations[i].name,
+                id: customFilters.carrierOrganizations[i].id,
+                name: customFilters.carrierOrganizations[i].name,
                 checked: false
             });
 
@@ -909,39 +914,42 @@ function initShipmentFilters()
     return filters;
 }
 
-var everythingArray = createShipmentObjectArray();
-function createShipmentObjectArray() {
-    shipmentArray = new Array();
+var everythingArray = createShipmentObjectArray(shipmentsCardFormat);
+function createShipmentObjectArray(shipmentsArray) {
+    var shipmentArray = new Array();
 
     var shipment;
-    for (var i = 0; i < shipmentsCardFormat.length; i++) {
+    for (var i = 0; i < shipmentsArray.length; i++) {
         shipment = new Shipment({
-            id: shipmentsCardFormat[i].id,
-            shipmentBid: shipmentsCardFormat[i].shipmentBid,
-            followersCount: shipmentsCardFormat[i].followersCount,
-            isFollowing: shipmentsCardFormat[i].isFollowing,
-            itemCount: shipmentsCardFormat[i].itemCount,
-            elementumEstimatedDeliveryDate: shipmentsCardFormat[i].elementumEstimatedDeliveryDate,
-            state: shipmentsCardFormat[i].state,
+            id: shipmentsArray[i].id,
+            shipmentBid: shipmentsArray[i].shipmentBid,
+            followersCount: shipmentsArray[i].followersCount,
+            isFollowing: shipmentsArray[i].isFollowing,
+            itemCount: shipmentsArray[i].itemCount,
+            elementumEstimatedDeliveryDate: shipmentsArray[i].elementumEstimatedDeliveryDate,
+            state: shipmentsArray[i].state,
+            promisedDeliveryDate: shipmentsArray[i].promisedDeliveryDate,
             "originSite": {
-                "id": shipmentsCardFormat[i].originSite.id,
-                "name": shipmentsCardFormat[i].originSite.name,
-                "city": shipmentsCardFormat[i].originSite.city,
-                "country": shipmentsCardFormat[i].originSite.country
+                "id": shipmentsArray[i].originSite.id,
+                "name": shipmentsArray[i].originSite.name,
+                "city": shipmentsArray[i].originSite.city,
+                "country": shipmentsArray[i].originSite.country,
+                "type": shipmentsArray[i].originSite.type,
             },
             "destinationSite": {
-                "id": shipmentsCardFormat[i].destinationSite.id,
-                "name": shipmentsCardFormat[i].destinationSite.name,
-                "city": shipmentsCardFormat[i].destinationSite.city,
-                "country": shipmentsCardFormat[i].destinationSite.country
+                "id": shipmentsArray[i].destinationSite.id,
+                "name": shipmentsArray[i].destinationSite.name,
+                "city": shipmentsArray[i].destinationSite.city,
+                "country": shipmentsArray[i].destinationSite.country,
+                "type": shipmentsArray[i].destinationSite.type
             },
             "currentCarrier": {
-                "name": shipmentsCardFormat[i].currentCarrier.name,
-                "transitMode": shipmentsCardFormat[i].currentCarrier.transitMode
+                "name": shipmentsArray[i].currentCarrier.name,
+                "transitMode": shipmentsArray[i].currentCarrier.transitMode
             },
             "offScheduleBy": {
-                "unit": shipmentsCardFormat[i].offScheduleBy.unit,
-                "duration": shipmentsCardFormat[i].offScheduleBy.duration
+                "unit": shipmentsArray[i].offScheduleBy.unit,
+                "duration": shipmentsArray[i].offScheduleBy.duration
             },
         });
 

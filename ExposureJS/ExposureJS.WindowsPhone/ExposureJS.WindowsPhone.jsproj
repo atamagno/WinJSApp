@@ -299,6 +299,7 @@
     <Content Include="images\hub-blue.svg" />
     <Content Include="images\hub-grey.svg" />
     <Content Include="images\hub-ltgrey.svg" />
+    <Content Include="images\loading-animation.gif" />
     <Content Include="images\mapView.png" />
     <Content Include="images\phone.png" />
     <Content Include="images\plant.jpg" />

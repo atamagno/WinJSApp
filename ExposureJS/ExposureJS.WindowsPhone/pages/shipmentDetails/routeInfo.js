@@ -18,9 +18,12 @@ var RouteInfo = WinJS.Binding.define({
 
             var mainModeOfTransport = shipmentPoster.mainModeOfTransport;
 
-            var legsCount = shipmentPoster.legs.length;
-            var originSiteName = shipmentPoster.legs[0].originSite.name;
-            var destinationSiteName = shipmentPoster.legs[legsCount - 1].destinationSite.name;
+            //var shipmentLegs = shipmentPoster.legs;
+            var shipmentLegs = ShipmentData.selectedShipment.legs;
+
+            var legsCount = shipmentLegs.length;
+            var originSiteName = shipmentLegs[0].originSite.name;
+            var destinationSiteName = shipmentLegs[legsCount - 1].destinationSite.name;
 
             var routeInfo = new RouteInfo(
                 {

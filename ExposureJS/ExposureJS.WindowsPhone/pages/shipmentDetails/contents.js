@@ -9,7 +9,8 @@
         ready: function (element, options) {
             // TODO: Inicializar la página aquí.
 
-            var shipmentContents = shipmentPoster.lineItems;
+            //var shipmentContents = shipmentPoster.lineItems;
+            var shipmentContents = ShipmentData.selectedShipment.lineItems;
 
             var contentListBinding = new WinJS.Binding.List(shipmentContents);
             var contentsListView = document.getElementById('contentsListView').winControl;

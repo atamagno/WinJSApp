@@ -15,7 +15,7 @@
         <div class="shipment-card">
             <div class="shipment-card-header">
                 <span class="schedule-status">
-                    <span data-win-bind="textContent: offScheduleBy ShipmentData.calculateDaysLate"></span>&nbsp;DAYS LATE
+                    <span data-win-bind="textContent: offScheduleBy ShipmentData.calculateDaysLateConverter"></span>&nbsp;DAYS LATE
                 </span>
                 <div class="shipment-bid" data-win-bind="textContent: shipmentBid"></div>
             </div>
@@ -29,7 +29,7 @@
                         <span data-win-bind="textContent: destinationSite.country"></span>
                     </div>
                     <div>
-                        Calculated:&nbsp;<span data-win-bind="textContent: elementumEstimatedDeliveryDate ShipmentData.showFormattedDate"></span>
+                        Calculated:&nbsp;<span data-win-bind="textContent: elementumEstimatedDeliveryDate ShipmentData.showFormattedDateConverter"></span>
                     </div>
                 </div>
 
