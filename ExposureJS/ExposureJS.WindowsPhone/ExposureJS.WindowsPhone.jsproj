@@ -284,6 +284,8 @@
     <Content Include="Bing.Maps.Javascript\images\YouAreHereBC.png" />
     <Content Include="Bing.Maps.Javascript\js\veapicore.js" />
     <Content Include="Bing.Maps.Javascript\js\veapiModules.js" />
+    <Content Include="css\fonts\OpenSans-Regular.ttf" />
+    <Content Include="css\fonts\ufonts.com_futura-condensed-normal.ttf" />
     <Content Include="css\hubPhone.css" />
     <Content Include="css\mapcontrol.css" />
     <Content Include="css\phone.css" />

@@ -1,9 +1,10 @@
 ﻿// Para obtener una introducción a la plantilla Control de página, consulte la siguiente documentación:
 // http://go.microsoft.com/fwlink/?LinkId=232511
 
+var itemIndex = 0;
 WinJS.Namespace.define("ShipmentDetails", {
     showIfFirstLeg: WinJS.Binding.converter(function (leg) {
-        return leg.originSite.name == shipmentPoster.legs[0].originSite.name ? "inline" : "none";
+        return itemIndex++ == 0 ? "inline" : "none";
     }),
 
     showSiteTypeImg: WinJS.Binding.converter(function (siteType) {
@@ -26,11 +27,11 @@ WinJS.Namespace.define("ShipmentDetails", {
     }),
 
     displayIfNotLastLeg: WinJS.Binding.converter(function (leg) {
-        return leg.destinationSite.name != shipmentPoster.legs[shipmentPoster.legs.length - 1].destinationSite.name ? "inline" : "none";
+        return itemIndex != shipmentLegs.length ? "inline" : "none";
     }),
 
     changeHeightIfActualLeg: WinJS.Binding.converter(function (leg) {
-        return leg.originSite.name == shipmentPoster.legs[0].originSite.name ? "140px" : "70px";
+        return leg.originSite.name == shipmentLegs[0].originSite.name ? "140px" : "100px";
     }),
 
     displayIfEventsExist: WinJS.Binding.converter(function (events) {
@@ -43,7 +44,7 @@ WinJS.Namespace.define("ShipmentDetails", {
     }),
 });
 
-var eventsListView;
+var eventsListView, shipmentLegs;
 
 (function () {
     "use strict";
@@ -64,13 +65,14 @@ var eventsListView;
         ready: function (element, options) {
             // TODO: Inicializar la página aquí.
 
-            var shipmentID = ShipmentData.shipmentID;
-            var shipment = searchShipmentById(shipmentID);
+            //var shipmentID = ShipmentData.shipmentID;
+            //var shipment = searchShipmentById(shipmentID);
 
-            WinJS.Binding.processAll(element.querySelector(".shipmentDetailContainer"), shipment);
+            itemIndex = 0;
+            WinJS.Binding.processAll(element.querySelector(".shipmentDetailContainer"), ShipmentData.shipmentCard);
 
-            var shipmentLegs = ShipmentData.selectedShipment.legs;
-            //var shipmentLegs = shipmentPoster.legs;
+            shipmentLegs = ShipmentData.selectedShipment.legs;
+            //shipmentLegs = shipmentPoster.legs;
             var legsListBinding = new WinJS.Binding.List(shipmentLegs);
 
             eventsListView = document.getElementById('eventsListView').winControl;

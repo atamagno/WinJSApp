@@ -10,7 +10,7 @@ function buildPath() {
     var shipmentLegs = ShipmentData.selectedShipment.legs;
     for (var i = 0; i < shipmentLegs.length; i++) {
 
-        var leg = shipmentPoster.legs[i];
+        var leg = shipmentLegs[i];
         var tempPath = leg.carrierLane.path;
 
         for (var j = 0; j < tempPath.length; j++) {

@@ -59,8 +59,8 @@
     color: #FFFFFF;
     text-transform: uppercase;
     font-size: 10pt;
-    display: -webkit-flex;
     display: flex;
+    font-weight: bold;
 }
 
 .toolbarOptionSelected {
@@ -92,6 +92,7 @@
     text-transform: uppercase;
     color: #FFFFFF;
     padding: 2px 0 2px 0;
+    font-family: Futura-Condensed;
     font-size: 20px;
     text-align: center;
 }
@@ -133,12 +134,12 @@
 }
 
 .shipment-bid {
+    font-family: Futura-Condensed;
     color: #484949;
     font-size: 18px;
 }
 
 .shipment-card-detail {
-    display: -webkit-flex;
     display: flex;
 }
 
@@ -158,12 +159,13 @@
 }
 
 .shipment-items-count {
+    font-size: 12px;
     position: relative;
     top: -15px;
 }
 
-.goint-to {
-    font: normal 10px/15px os;
+.going-to {
+    font-size: 12px;
     color: #919090;
     text-transform: uppercase;
 }
@@ -173,7 +175,7 @@
 }
 
 .currently-with {
-    font: normal 10px/15px os;
+    font-size: 12px;
     color: #919090;
     text-transform: uppercase;
 }
@@ -185,13 +187,12 @@
 .shipment-card-toolbar {
     position: relative;
     background-color: #eeeeee;
-    margin: 12px -17px -12px;
+    margin: 13px -17px -12px;
     color: #484949;
     padding: 0 6px;
-    display: -webkit-flex;
     display: flex;
-    height: 35px;
-    line-height: 35px;
+    height: 36px;
+    line-height: 36px;
 }
 
 .following-button {
@@ -278,7 +279,6 @@
 
 .filterFirstColumn {
     width: 50%;
-    font-weight: 800;
 }
 
 .filterSecondColumn {

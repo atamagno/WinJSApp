@@ -22,7 +22,7 @@
             <div class="shipment-card-detail">
                 <div class="shipment-card-detail-left">
                     <span class="shipment-items-count" data-win-bind="textContent: itemCount ShipmentData.formatItemCount"></span>
-                    <div class="goint-to">Going to</div>
+                    <div class="going-to">Going to</div>
                     <div data-win-bind="textContent: destinationSite.name"></div>
                     <div class="shipment-destination">
                         <span data-win-bind="textContent: destinationSite.city"></span>,&nbsp;
@@ -114,7 +114,7 @@
                 <table class="eventDetailsTable carrierDiv">
                     <tr>
                         <td class="eventSiteName">
-                            <div>Damco</div>
+                            <div data-win-bind="textContent: carrierLane.name"></div>
                         </td>
                     </tr>
                 </table>

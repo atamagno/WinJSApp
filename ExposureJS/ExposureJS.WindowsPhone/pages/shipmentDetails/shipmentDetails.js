@@ -72,16 +72,16 @@
 
             switch (buttonID) {
                 case "shipmentOption":
-                    pivotControl.selectedIndex = 0;
+                    if (pivotControl.selectedIndex != 0) pivotControl.selectedIndex = 0;
                     break;
                 case "contentsOption":
-                    pivotControl.selectedIndex = 1;
+                    if (pivotControl.selectedIndex != 1) pivotControl.selectedIndex = 1;
                     break;
                 case "contactsOption":
-                    pivotControl.selectedIndex = 2;
+                    if (pivotControl.selectedIndex != 2) pivotControl.selectedIndex = 2;
                     break;
                 case "routeInfoOption":
-                    pivotControl.selectedIndex = 3;
+                    if (pivotControl.selectedIndex != 3) pivotControl.selectedIndex = 3;
                     break;
             }
         }

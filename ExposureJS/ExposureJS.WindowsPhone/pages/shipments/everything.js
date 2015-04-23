@@ -130,7 +130,8 @@ WinJS.Namespace.define("ShipmentData", {
 
             var item = shipmentListBinding.getAt(args.detail.itemIndex);
             WinJS.Namespace.define("ShipmentData", {
-                shipmentID: item.id
+                shipmentID: item.id,
+                shipmentCard: item
             });
 
             esaWin.core.esaAPI({

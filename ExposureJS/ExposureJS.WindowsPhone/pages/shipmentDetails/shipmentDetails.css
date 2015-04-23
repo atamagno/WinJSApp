@@ -82,7 +82,6 @@
 
 .shipment-contents-detail {
     display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
     border-bottom: 1px solid #CECECE;
 }
@@ -108,7 +107,6 @@
 
 .shipment-contacts-detail {
     display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
     border-top: 1px solid #CECECE;
     background-color: #E7E7E7;
@@ -174,7 +172,6 @@
 }
 
 .routeInfoTopDiv {
-    display: -webkit-flex;
     display: flex;
     background-color: #FFFFFF;
     width: 100%;
@@ -205,21 +202,17 @@
 }
 
 .routeInfoMiddleDiv {
-    display: -webkit-flex;
     display: flex;
     background-color: #FFFFFF;
     width: 100%;
-    font-weight: 800;
     border-top: 1px solid #D8D8D8;
     border-bottom: 1px solid #D8D8D8;
 }
 
 .routeInfoBottomDiv {
-    display: -webkit-flex;
     display: flex;
     background-color: #FFFFFF;
     width: 100%;
-    font-weight: 800;
     border-bottom: 1px solid #D8D8D8;
 }
 
