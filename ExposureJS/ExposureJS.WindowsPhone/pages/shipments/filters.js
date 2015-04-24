@@ -133,14 +133,11 @@ var appliedFilters, resetFilters;
     function viewFilterSelection(eventInfo) {
         eventInfo.preventDefault();
 
-        document.querySelector("#filtersSelectionContainerBackground").style.display = "block";
-
         var filterSelectionDiv;
         var selectedFilter = eventInfo.currentTarget.id;
         switch (selectedFilter) {
             case "statusFilterSelection":
                 filterSelectionDiv = document.querySelector(".statusFiltersDiv");
-                filterSelectionDiv.style.display = "block";
 
                 document.getElementById("cbBooked").checked = appliedFilters.status.booked;
                 document.getElementById("cbInTransit").checked = appliedFilters.status.inTransit;
@@ -153,64 +150,62 @@ var appliedFilters, resetFilters;
                 break;
             case "carrierFilterSelection":
                 filterSelectionDiv = document.querySelector(".carrierFiltersDiv");
-                filterSelectionDiv.style.display = "block";
-
                 buildFilterSelection(filterSelectionDiv, appliedFilters.carrierOrganizations);
                 break;
             case "departingSiteFilterSelection":
                 filterSelectionDiv = document.querySelector(".departingSiteFiltersDiv");
-                filterSelectionDiv.style.display = "block";
-
                 buildFilterSelection(filterSelectionDiv, appliedFilters.originSites);
                 break;
             case "arrivingSiteFilterSelection":
                 filterSelectionDiv = document.querySelector(".arrivingSiteFiltersDiv");
-                filterSelectionDiv.style.display = "block";
-
                 buildFilterSelection(filterSelectionDiv, appliedFilters.destinationSites);
                 break;
             case "regionFilterSelection":
                 filterSelectionDiv = document.querySelector(".regionFiltersDiv");
-                filterSelectionDiv.style.display = "block";
-
                 buildFilterSelection(filterSelectionDiv, appliedFilters.regions);
                 break;
         }
+
+        filterSelectionDiv.style.display = "block";
+        WinJS.UI.Animation.fadeIn(filterSelectionDiv);
     }
 
     function closeFilterSelection(eventInfo) {
         eventInfo.preventDefault();
 
+        var filterSelectionDiv = null;
         var selectedFilter = eventInfo.currentTarget.id;
         switch (selectedFilter) {
             case "closeStatusDialogButton":
-                document.querySelector(".statusFiltersDiv").style.display = "none";
+                filterSelectionDiv = document.querySelector(".statusFiltersDiv");
                 break;
             case "closeCarrierDialogButton":
-                document.querySelector(".carrierFiltersDiv").style.display = "none";
+                filterSelectionDiv = document.querySelector(".carrierFiltersDiv");
                 break;
             case "closeDepartingSiteDialogButton":
-                document.querySelector(".departingSiteFiltersDiv").style.display = "none";
+                filterSelectionDiv = document.querySelector(".departingSiteFiltersDiv");
                 break;
             case "closeArrivingSiteDialogButton":
-                document.querySelector(".arrivingSiteFiltersDiv").style.display = "none";
+                filterSelectionDiv = document.querySelector(".arrivingSiteFiltersDiv");
                 break;
             case "closeRegionDialogButton":
-                document.querySelector(".regionFiltersDiv").style.display = "none";
+                filterSelectionDiv = document.querySelector(".regionFiltersDiv");
                 break;
         }
 
-        document.querySelector("#filtersSelectionContainerBackground").style.display = "none";
+        WinJS.UI.Animation.fadeOut(filterSelectionDiv).done(function () {
+            filterSelectionDiv.style.display = "none";
+        });
     }
 
-    function applyFilterSelection(eventInfo)
-    {
+    function applyFilterSelection(eventInfo) {
         eventInfo.preventDefault();
 
+        var filterSelectionDiv = null;
         var selectedFilter = eventInfo.currentTarget.id;
         switch (selectedFilter) {
             case "applyStatusDialogButton":
-                document.querySelector(".statusFiltersDiv").style.display = "none";
+                filterSelectionDiv = document.querySelector(".statusFiltersDiv");
                 var selectedFiltersDiv = document.querySelector("#statusFilterSelection .filterSecondColumn");
                 selectedFiltersDiv.innerHTML = "";
 
@@ -237,21 +232,28 @@ var appliedFilters, resetFilters;
 
                 break;
             case "applyCarrierDialogButton":
-                buildSelectedFiltersDivAfterApply(".carrierFiltersDiv", "#carrierFilterSelection", appliedFilters.carrierOrganizations);
+                filterSelectionDiv = document.querySelector(".carrierFiltersDiv");
+                buildSelectedFiltersDivAfterApply("#carrierFilterSelection", appliedFilters.carrierOrganizations);
                 break;
             case "applyDepartingSiteDialogButton":
-                buildSelectedFiltersDivAfterApply(".departingSiteFiltersDiv", "#departingSiteFilterSelection", appliedFilters.originSites);
+                filterSelectionDiv = document.querySelector(".departingSiteFiltersDiv");
+                buildSelectedFiltersDivAfterApply("#departingSiteFilterSelection", appliedFilters.originSites);
                 break;
             case "applyArrivingSiteDialogButton":
-                buildSelectedFiltersDivAfterApply(".arrivingSiteFiltersDiv", "#arrivingSiteFilterSelection", appliedFilters.destinationSites);
+                filterSelectionDiv = document.querySelector(".arrivingSiteFiltersDiv");
+                buildSelectedFiltersDivAfterApply("#arrivingSiteFilterSelection", appliedFilters.destinationSites);
                 break;
             case "applyRegionDialogButton":
-                buildSelectedFiltersDivAfterApply(".regionFiltersDiv", "#regionFilterSelection", appliedFilters.regions);
+                filterSelectionDiv = document.querySelector(".regionFiltersDiv");
+                buildSelectedFiltersDivAfterApply("#regionFilterSelection", appliedFilters.regions);
                 break;
         }
 
         resetFilters = false;
-        document.querySelector("#filtersSelectionContainerBackground").style.display = "none";
+
+        WinJS.UI.Animation.fadeOut(filterSelectionDiv).done(function () {
+            filterSelectionDiv.style.display = "none";
+        });
     }
 
     function initSelectedFilters()
@@ -309,10 +311,8 @@ var appliedFilters, resetFilters;
         }
     }
 
-    function buildSelectedFiltersDivAfterApply(filtersContainerSelector, selectedFiltersDivSelector, filters)
+    function buildSelectedFiltersDivAfterApply(selectedFiltersDivSelector, filters)
     {
-        document.querySelector(filtersContainerSelector).style.display = "none";
-        
         var selectedFiltersDiv = document.querySelector(selectedFiltersDivSelector + " .filterSecondColumn");
         selectedFiltersDiv.innerHTML = "";
 

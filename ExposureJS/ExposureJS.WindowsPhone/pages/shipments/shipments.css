@@ -249,6 +249,8 @@
     padding: 10px;
     font-size: 16pt;
     font-weight: normal;
+    overflow-y: scroll;
+    height: 100%;
 }
 
 .filtersResetRow {
@@ -286,19 +288,24 @@
     text-align: right;
 }
 
-#filtersSelectionContainerBackground {
+.filtersSelectionContainerBackground {
     display: none;
+    opacity: 0;
     position: absolute;
     top: 0px;
     background-color: rgba(0, 0, 0, .5);
-    height: 100%; width: 100%;
+    height: 100%;
+    width: 100%;
 }
 
 .filtersSelectionDiv {
     position: relative;
     top: 100px;
     background-color: #FFFFFF;
-    display: none;
+    /*display: none;*/
+    margin: 0px 20px;
+    border: 1px solid gray;
+    /*opacity: 0;*/
 }
 
 .filterSelectionHeader {
