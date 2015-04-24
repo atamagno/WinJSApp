@@ -29,6 +29,18 @@ WinJS.Namespace.define("ShipmentData", {
         }
     }
 
+    var getShipmentPosterCallback = function (o) {
+        if (o.status === 'completed') {
+            var shipment = JSON.parse(o.request.response);
+
+            WinJS.Namespace.define("ShipmentData", {
+                selectedShipment: shipment
+            });
+
+            WinJS.Navigation.navigate("/pages/shipmentDetails/shipmentDetails.html");
+        }
+    }
+
     var ControlConstructor = WinJS.UI.Pages.define("/pages/shipments/following.html", {
         // Se llama a esta función cuando un usuario navega a esta página. Esta
         // rellena los elementos de la página con los datos de la aplicación.
@@ -71,8 +83,23 @@ WinJS.Namespace.define("ShipmentData", {
         },
 
         navigateToShipmentDetail: WinJS.Utilities.markSupportedForProcessing(function (args) {
+
             var item = ShipmentData.followingShipmentListBinding.getAt(args.detail.itemIndex);
-            WinJS.Navigation.navigate("/pages/shipmentDetails/shipmentDetails.html", { shipmentID: item.id });
+            WinJS.Namespace.define("ShipmentData", {
+                shipmentID: item.id,
+                shipmentCard: item
+            });
+
+            esaWin.core.esaAPI({
+                url: '/rest/v1/shipments/' + item.id + '/poster',
+                type: 'GET',
+                callback: getShipmentPosterCallback
+            });
+
+            document.querySelector(".loadingBackground").style.display = "block";
+
+            //var item = ShipmentData.followingShipmentListBinding.getAt(args.detail.itemIndex);
+            //WinJS.Navigation.navigate("/pages/shipmentDetails/shipmentDetails.html", { shipmentID: item.id });
         }),
 
         unload: function () {
